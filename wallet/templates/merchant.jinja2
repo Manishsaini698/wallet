@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Project Name</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/materialize.css" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{request.static_url('wallet:static/css/materialize.css')}}" />
+    <link rel="stylesheet" href="{{request.static_url('wallet:static/css/style.css')}}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
         crossorigin="anonymous">
@@ -131,7 +131,7 @@
     </footer>
 
 
-    <script src="./js/bin/materialize.js"></script>
+    <script src="{{request.static_url('wallet:static/js/bin/materialize.js')}}"></script>
     <script>
         M.AutoInit();
         var elem = document.querySelector('.collapsible.expandable');
