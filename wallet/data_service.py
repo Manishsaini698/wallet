@@ -12,4 +12,5 @@ def create_customer(**kwargs):
     customer.hashed_pass = kwargs['hashed_password']
     customer.cid = ''.join(customer.name.split(' ')).lower()
     customer.save()
+    print('yoyo')
 
