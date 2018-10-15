@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project Name</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/materialize.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="nav-extended">
+        <div>
+            <div class="row">
+
+                <div class="col s12">
+
+                    <img src="" alt="" id="logo">LogoPlaceholder
+                </div>
+            </div>
+        </div>
+        <div class="nav-content">
+            <ul class="tabs">
+                <li class="tab"><a class="active" href="#user">User</a></li>
+                <li class="tab"><a href="#merchant">Merchant</a></li>
+            </ul>
+        </div>
+    </nav><br>
+    <div id="user">
+        <form action="" method="post"><br><br>
+            <div class="input-field">
+                <i class="fas fa-user-alt prefix colorgrey" style="font-size: 25px;"></i>
+                <input type="text" id="name" class="autocomplete" required>
+                <label class="active" for="name">Full Name</label>
+            </div><br>
+            <div class="input-field">
+                <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
+                <input type="text" id="signupphone" class="autocomplete" required>
+                <label class="active" for="signupphone">Mobile Number</label>
+            </div><br>
+            <div class="input-field">
+                <i class="fas fa-envelope prefix colorgrey" style="font-size: 25px;"></i>
+                <input type="email" id="email" class="validate">
+                <label class="active" for="email">Email</label>
+                <span class="helper-text" data-error="Please enter email in correct format">Optional</span>
+            </div><br>
+            <div class="input-field">
+                <i class="fas fa-key prefix colorgrey" style="font-size: 25px;"></i>
+                <input type="password" id="phone" class="autocomplete validate">
+                <label class="active" for="phone">Password</label>
+                <span class="helper-text">Optional</span>
+            </div><br>
+            <center><button class="waves-effect waves-light btn">
+                    &nbsp;sign up</a></center><br>
+            <br>
+            <br>
+        </form>
+    </div>
+    <div id="merchant">
+        <form action="" method="post">
+            <div class="input-field">
+                <i class="fas fa-user-alt prefix colorgrey" style="font-size: 25px;"></i>
+                <input type="text" id="mname" class="autocomplete" required />
+                <label class="active" for="mname">Full Name</label>
+            </div><br>
+            <div class="input-field">
+                <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
+                <input type="text" id="msignupphone" class="autocomplete" required />
+                <label class="active" for="msignupphone">Mobile Number</label>
+            </div><br>
+            <div class="input-field">
+                <i class="fas fa-envelope prefix colorgrey" style="font-size: 25px;"></i>
+                <input type="email" id="memail" class="validate" required>
+                <label class="active" for="memail">Email</label>
+                <span class="helper-text" data-error="Please enter email in correct format"></span>
+            </div>
+            <div class="input-field">
+                <i class="fas fa-map-marked-alt prefix colorgrey" style="font-size: 25px;"></i>
+                <input type="text" id="address" class="autocomplete" required />
+                <label class="active" for="address">Address of Shop</label>
+            </div><br>
+            <div class="input-field">
+                <i class="fas fa-key prefix colorgrey" style="font-size: 25px;"></i>
+                <input type="text" id="mpassword" class="autocomplete" required />
+                <label class="active" for="mpassword">Password</label>
+                <span class="helper-text">Optional</span>
+            </div><br>
+            <center> <button class="waves-effect waves-light btn">
+                    &nbsp;sign up</a></center><br>
+            <br>
+            <br>
+
+        </form>
+    </div>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Heading</h5>
+                    <p class="grey-text text-lighten-4">Text Placeholder</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 The Decoits
+                <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="./js/bin/materialize.js"></script>
+    <script>
+        M.AutoInit();
+        var elem = document.querySelector('.collapsible.expandable');
+        var instance = M.Collapsible.init(elem, {
+            accordion: false
+        });
+    </script>
+</body>
+
+</html>

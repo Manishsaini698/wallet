@@ -1,0 +1,149 @@
+#flex-container
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}.heading
+{
+    margin-left:5%;color: #333
+}
+.colorgrey
+{
+    color: rgb(117, 115, 115);
+}
+.function-container
+{
+    border: 1px solid #c5c3c3;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+}
+#otp-container
+{
+    height: 55vh;
+    margin: 15px;
+}
+#login-pswrd
+{
+    width: 55vw;
+    height: 60vh;
+}
+#resend
+{
+    display: none;
+}
+#login-container
+{
+    height: 80vh;
+}
+#login-otp
+{
+    width: 55vw;
+    height: 55vh
+}
+#expire
+{
+    position: relative;
+    bottom: 40px;
+    color: grey
+}
+.balance
+{
+    font-size: 1.2rem;
+    float: right;
+    position: relative;
+    right: 10px;
+    color: rgb(110, 108, 108);
+}
+#merchant-recharge
+{
+    display: flex;
+    flex-direction: row;
+    width: 97vw;
+}
+#merchant-debit
+{
+    display: flex;
+    flex-direction: row;
+    width: 97vw;
+}
+#btn-collection
+{
+    border: none;
+    margin: 5%;
+    width: 90vw
+}
+.history-items
+{
+    margin: 10px;
+}
+#quote
+{
+    background: #eaeaea;
+}
+.recharge
+{
+    margin-top:7px;
+}
+.merchantContainer
+{
+    margin: 5px;
+    width: 33vw;
+    margin-left: 5%;
+}
+.flexBox
+{
+    width: 100%;
+    height: 60vh
+}
+#btns
+{
+    display: inline;
+    float: right;
+}
+.user-transfer
+{
+    display: flex;
+    flex-direction: row;
+    width: 97vw;
+}
+@media(max-width:700px)
+{   
+    .user-transfer
+    {
+        flex-direction: column
+    }
+
+    #btn-collection
+    {
+        width: 90vw;
+    }
+    #flex-container
+    {
+        flex-direction: column
+    }
+    .flexBox
+    {
+        width: 100%;
+        height: 50vh;
+    }
+    #merchant-recharge
+    {
+        flex-direction: column
+    }
+    #merchant-debit
+    {
+        flex-direction: column;
+    }
+    .merchantContainer
+    {
+        width: 85vw;
+    }
+}
+#user,#merchant
+{
+    display: flex;
+    margin: 0 20vw 0 20vw;
+    flex-direction: column;
+    justify-content: center
+}
