@@ -6,7 +6,9 @@ production.ini
 pytest.ini
 wallet/__init__.py
 wallet/data_service.py
+wallet/emailing.py
 wallet/models.py
+wallet/security.py
 wallet/tests.py
 wallet/views.py
 wallet.egg-info/PKG-INFO
@@ -19,5 +21,11 @@ wallet.egg-info/top_level.txt
 wallet/static/pyramid-16x16.png
 wallet/static/pyramid.png
 wallet/static/theme.css
+wallet/templates/index.jinja2
 wallet/templates/layout.jinja2
+wallet/templates/login.jinja2
+wallet/templates/merchant.jinja2
 wallet/templates/mytemplate.jinja2
+wallet/templates/otp.jinja2
+wallet/templates/signup.jinja2
+wallet/templates/user.jinja2

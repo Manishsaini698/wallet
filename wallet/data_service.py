@@ -3,9 +3,13 @@ from . import models
 
 connect('wallet')
 
+
 def create_customer(**kwargs):
-    customer = models.Customer()
+    company = models.Startup()
+    customer.email = kwargs['email']
     customer.name = kwargs['name'].capitalize()
-    customer.mobile_no = kwargs[int('mobile_no')]
-    #customer.hashed_pass = kwargs['hashed_password']
+    customer.mobileno = kwargs['mobileno']
+    customer.hashed_pass = kwargs['hashed_password']
+    customer.cid = ''.join(customer.name.split(' ')).lower()
     customer.save()
+

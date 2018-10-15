@@ -32,26 +32,26 @@
         </div>
     </nav><br>
     <div id="user">
-        <form action="" method="post"><br><br>
+        <form action="/create" method="post"><br><br>
             <div class="input-field">
                 <i class="fas fa-user-alt prefix colorgrey" style="font-size: 25px;"></i>
-                <input type="text" id="name" class="autocomplete" required>
+                <input type="text" id="name" name="name" class="autocomplete" required>
                 <label class="active" for="name">Full Name</label>
             </div><br>
             <div class="input-field">
                 <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
-                <input type="text" id="signupphone" class="autocomplete" required>
+                <input type="text" id="signupphone" name="mobileno" class="autocomplete" required>
                 <label class="active" for="signupphone">Mobile Number</label>
             </div><br>
             <div class="input-field">
                 <i class="fas fa-envelope prefix colorgrey" style="font-size: 25px;"></i>
-                <input type="email" id="email" class="validate">
+                <input type="email" id="email" name="email" class="validate">
                 <label class="active" for="email">Email</label>
                 <span class="helper-text" data-error="Please enter email in correct format">Optional</span>
             </div><br>
             <div class="input-field">
                 <i class="fas fa-key prefix colorgrey" style="font-size: 25px;"></i>
-                <input type="password" id="phone" class="autocomplete validate">
+                <input type="password" id="phone" name="password" class="autocomplete validate">
                 <label class="active" for="phone">Password</label>
                 <span class="helper-text">Optional</span>
             </div><br>
