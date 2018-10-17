@@ -37,14 +37,14 @@
             <br>
             <br>
             <br>
-            <form action="" method="post">
+            <form action="/otpLogin" method="post">
                 <div class="input-field">
                     <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
-                    <input type="text" id="phone" class="autocomplete">
+                    <input type="text" id="phone" name="mobileno" class="autocomplete">
                     <label class="active" for="phone">Mobile Number</label>
                 </div><br>
-                <a class="waves-effect waves-light btn">
-                    &nbsp;Verify</a>
+                <button class="waves-effect waves-light btn" type="submit" name="form.submitted">
+                    &nbsp;Verify</button>
             </form>
             <br>
             <br>
@@ -59,19 +59,19 @@
             <br>
             <br>
             <br>
-            <form action="" method="post">
+            <form action="/passLogin" method="post">
                 <div class="input-field">
                     <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
-                    <input type="text" id="phone1" class="autocomplete">
+                    <input type="text" id="phone1" name="mobileno" class="autocomplete">
                     <label class="active" for="phone1">Mobile Number</label>
                 </div><br>
                 <div class="input-field">
                     <i class="fas fa-lock prefix colorgrey" style="font-size: 25px;"></i>
-                    <input type="text" id="password" class="autocomplete">
+                    <input type="text" id="password" name="password" class="autocomplete">
                     <label class="active" for="password">Mobile Number</label>
                 </div><br>
-                <a class="waves-effect waves-light btn">
-                        &nbsp;Login</a>
+                <button class="waves-effect waves-light btn" type="submit" name="form.submitted">
+                        &nbsp;Login</button>
     
             </form>
     </center>

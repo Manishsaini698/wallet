@@ -27,14 +27,16 @@
     </nav>
     <br><br>
     <div id="otp-container">
+    <form action="/otpverify" method="post">
         <div class="input-field">
-            <input type="text" id="otp" class="autocomplete">
+            <input type="text" id="otp" name="otp" class="autocomplete">
             <label for="otp">OTP</label>
         </div><br>
         <span id="expire"><span id="expire-msg">OTP expires in </span><span id="time"></span><a href="" id="resend">Resend
                 OTP</a></span>
-        <div><a class="waves-effect waves-light btn recharge yellow darken-1">
+        <div><a class="waves-effect waves-light btn recharge yellow darken-1" type="submit" name="form.submitted">
                 &nbsp;Verify</a></div>
+    </form>
     </div>
     <footer class="page-footer">
         <div class="container">

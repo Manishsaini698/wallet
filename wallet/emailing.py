@@ -8,13 +8,14 @@ from email.mime.text import MIMEText
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
 
+
 #emailid = os.environ['email']
 
 def send_email(recipient, message):
     msg = MIMEMultipart()
     msg['To'] = recipient
     msg['From'] = emailid
-    msg['Subject'] = 'Notification from Expay'
+    msg['Subject'] = 'Otp for login from Expay'
     part = MIMEText('text', 'plain')
     part.set_payload(message)
     msg.attach(part)
@@ -23,6 +24,7 @@ def send_email(recipient, message):
     session.ehlo()
     session.starttls()
     #password = os.environ['ekey']
+
     session.login(emailid, password)
     session.sendmail(emailid, recipient, msg.as_string())
     session.quit()
