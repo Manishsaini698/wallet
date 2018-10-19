@@ -2,8 +2,7 @@ from pyramid.config import Configurator
 
 
 def main(global_config, **settings):
-    """ This function returns a Pyramid WSGI application.
-    """
+    """ This function returns a Pyramid WSGI application."""
     config = Configurator(settings=settings)
     config.include('pyramid_jinja2')
     config.add_static_view('static', 'static', cache_max_age=3600)
@@ -13,6 +12,7 @@ def main(global_config, **settings):
     config.add_route('createCus','/createCus')
     config.add_route('createMer','/createMer')
     config.add_route('otpLogin','/otpLogin')
+    config.add_route('enterotp','/enterotp')
     config.add_route('passLogin','/passLogin')
     config.add_route('otpVerify','/otpVerify')  
     config.add_route('user','/user')  
