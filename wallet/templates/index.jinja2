@@ -10,48 +10,59 @@
     <link rel="stylesheet" href="{{request.static_url('wallet:static/css/style.css')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
         crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <style>
+
+    </style>
 </head>
 
 <body>
-    <nav class="nav">
-        <div class="nav">
-            <div class="row">
-                <div class="col s12">
-                    <img src="" alt="" id="logo">LogoPlaceholder
-                    <ul id="btns">
-                        <li><a class="waves-effect waves-light btn list-items" href="/login">Login</a></li>
-
-                        <li> <a class="waves-effect waves-light btn list-items" href="/signup">Signup</a></li>
-                    </ul>
+    <div class="navbar-fixed">
+        <nav class="nav-extended">
+            <div class="nav">
+                <div class="">
+                    <div class="">
+                        <img src="{{request.static_url('wallet:static/images/Paydex.png')}}" alt="" id="logo">
+                        <ul id="btns">
+                            <li><a class="waves-effect waves-light btn list-items">Login</a></li>
+                            <li> <a class="waves-effect waves-light btn list-items">Signup</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
     <div id="flex-container">
-        <div id="quote" class="flexBox">
+        <canvas class="flexBox" id="quote">
+        </canvas>
+        <blockquote style="height:92vh">
             
-        </div>
+            There are some things that money can't buy, for all the other things
+            PayDex is here
+            <br><br>
+            <center> <button onclick="scrolling()" id="know-more">Know More</a></center>
+        </blockquote>
         <div class="flexBox">
             <div class="slider">
                 <ul class="slides">
                     <li>
-                        <img src="{{request.static_url('wallet:static/images/1.jpg')}}">
+                        <img src="{{request.static_url('wallet:static/images/1.png')}}">
                         <div class="caption center-align">
-                            <h3>Placeholder</h3>
+                            <h3>For Elders</h3>
                             <h5 class="light slidetext">Text</h5>
                         </div>
                     </li>
                     <li>
-                        <img src="{{request.static_url('wallet:static/images/2.jpg')}}">>
+                        <img src="{{request.static_url('wallet:static/images/2.png')}}">>
                         <div class="caption left-align">
-                            <h3>Placeholder</h3>
+                            <h3>For Youth</h3>
                             <h5 class="light blue-text text-lighten-3 slidetext">Text</h5>
                         </div>
                     </li>
                     <li>
-                        <img src="{{request.static_url('wallet:static/images/3.jpg')}}">
+                        <img src="{{request.static_url('wallet:static/images/3.png')}}">
                         <div class="caption right-align">
-                            <h3>Placeholder</h3>
+                            <h3>For World</h3>
                             <h5 class="light blue-text text-lighten-3 slidetext">Text</h5>
                         </div>
                     </li>
@@ -65,24 +76,89 @@
                 </ul>
             </div>
         </div>
-        <div class="flexBox">text placeholder</div>
+        <center><br><br><br>
+            <div id="more">
+                <center>
+                    <div id="choose">Why to use PayDex?</div><br><br>
+                </center><br><br>
+                <div id="features">
+                    <div class="feature-cards">
+                        <div style="padding:10px; min-height: 400px" class="card hoverable">
+                            <center><span class="card-title"><b>No more Email required</b></span></center><br>
+                            <div class="center-align card-image">
+                                <i class="fas fa-at" style="font-size: 150px;"></i>
+
+                            </div>
+                            <div class="card-content">
+                                <p>Your phone number is enough
+                                    for the signup. No need of emails</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-cards">
+                        <div style="padding:10px;min-height: 400px" class="card hoverable">
+                            <center><span class="card-title"><b>Phone number is your security</b></span></center>
+                            <div class="center-align card-image">
+                                <i class="fas fa-shield-alt" style="font-size: 150px;"></i>
+
+                            </div>
+                            <div class="card-content">
+                                <p>Elderly people don't need to remember password.
+                                    your OTP will serve you</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-cards">
+                        <div style="padding:10px;min-height: 400px" class="card hoverable">
+                            <center><span class="card-title"><b>Easy To Operate</b> </span></center><br>
+                            <div class="center-align card-image">
+                                <i class="far fa-hand-point-up" style="font-size: 150px;"></i>
+
+                            </div>
+                            <div class="card-content">
+                                <p> Now paying and recieving money is just a work of 1 step. Just
+                                    enter the amount and pay by confirming OTP</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-cards">
+                        <div style="padding:10px;min-height: 400px;" class="card hoverable">
+                            <center><span class="card-title"> <b>Accessible To All</b> </span></center><br>
+                            <div class="center-align card-image">
+                                <i class="fas fa-universal-access" style="font-size: 150px;"></i>
+
+                            </div>
+                            <div class="card-content">
+                                <p>Not only young gereration, but old citiizens, refugees, and
+                                    physically challenged people can also use it easily</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </center>
     </div>
+    <div id="pic">
+    </div> 
+    </div><br>
+    <br>
+    <br>
     <footer class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Footer Heading</h5>
-                    <p class="grey-text text-lighten-4">Text Placeholder</p>
+                    <h5 class="white-text">About our Team</h5>
+                    <p class="grey-text text-lighten-4">blah blah blah</p>
+                    <a style="color: #333;border: 2px solid #333;padding: 5px;cursor: pointer">Read more</a>
                 </div>
-                <!-- <div class="col l4 offset-l2 s12">
-                  <h5 class="white-text">Links</h5>
-                  <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                  </ul>
-                </div> -->
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Other info</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Why become our Partner?</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Customer's Benifit</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Know about our team</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">FAQ</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="footer-copyright">
@@ -92,14 +168,40 @@
             </div>
         </div>
     </footer>
-
-
+    <script src="{{request.static_url('wallet:static/js/granim.js')}}"></script>
+    <script>
+        function scrolling() {
+            document.querySelector('#more').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        window.onload = function () {
+            let elem = document.getElementById('quote');
+            elem.style.opacity = "1";
+        };
+        var granimInstance = new Granim({
+            element: '#quote',
+            name: 'basic-gradient',
+            direction: 'diagonal', // 'diagonal', 'top-bottom', 'radial'
+            opacity: [1, 1],
+            stateTransitionSpeed: 2000,
+            isPausedWhenNotInView: true,
+            states: {
+                "default-state": {
+                    gradients: [
+                        ['#834d9b', '#d04ed6'],
+                        ['#1CD8D2', '#93EDC7']
+                    ]
+                }
+            }
+        });
+    </script>
     <script src="{{request.static_url('wallet:static/js/bin/materialize.js')}}"></script>
     <script>
         M.AutoInit();
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.slider');
-            var instances = M.Slider.init(elems,{indicators:false,duration:600,interval:3000});
+            var instances = M.Slider.init(elems, { indicators: false, duration: 600, interval: 3000 });
         });
     </script>
 </body>

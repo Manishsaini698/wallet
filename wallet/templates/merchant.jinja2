@@ -14,21 +14,21 @@
 </head>
 
 <body>
+    <div class="navbar-fixed">
     <nav class="nav-extended">
         <div>
-            <div class="row">
-
-                <div class="col s12">
-
-                    <img src="" alt="" id="logo">LogoPlaceholder
+            <div class="">
+                <div class="">
+                    <img src="{{request.static_url('wallet:static/images/Paydex.png')}}" alt="" id="logo">
                     <ul id="btns">
                         <!-- <li> <a class="waves-effect waves-light btn list-items">Logout</a></li> -->
+                        <li><a href="" class="btn-floating"><i class="far fa-user" style="font-size: 20px;"></i></a></li>
                        <li><a class="btn-floating yellow accent-4"><i class="fas fa-sign-out-alt" style="font-size: 20px;"></i></a></li>
                     </ul>
                 </div>
             </div>
         </div>
-    </nav>
+    </nav></div><br><br>
     <div style="border-bottom:1px solid lightgrey" class="nav-wrapper">
         <form method="POST">
             <div class="input-field">
@@ -39,9 +39,9 @@
         </form>
     </div>
     <br><br>
-    <a title="Request Agent" style="position:absolute;right:25px;top:130px;" class="btn-floating pulse"><i class="fas fa-truck"
+    <a title="Request Agent" style="position:absolute;right:15px;top:170px;" class="btn-floating pulse"><i class="fas fa-truck"
             style="font-size: 16px;"></i></a><br>
-    <div class="function-container">
+    <div class="function-container hoverable">
     <h4 class="heading">Recharge</h4><br>
     <div id="merchant-recharge">
         <div class="input-field merchantContainer">
@@ -51,7 +51,7 @@
         </div><br>
         <div class="input-field merchantContainer">
             <i class="fas fa-rupee-sign prefix colorgrey" style="font-size: 25px;"></i>
-            <input type="text" id="amountToCredit" class="autocomplete">
+            <input type="text" id="amountToCredit" name="money" class="autocomplete">
             <label for="amountToCredit">Amount</label>
         </div><br>
         <div class="merchantContainer"><a class="waves-effect waves-light btn recharge"><i class="fas fa-bolt" style='font-size:15px ;position:relative ; margin-bottom:0;'></i>
@@ -60,7 +60,7 @@
     <br>
     <br>
     <br>
-    <div class="function-container">
+    <div class="function-container hoverable">
     <h4 class="heading">Debit</h4><br>
     <div id="merchant-debit">
 
@@ -78,7 +78,7 @@
                     class="fas fa-wallet" style="font-size: 16px;"></i>
                 &nbsp;Debit&nbsp;&nbsp;&nbsp;</a></div>
     </div>
-</div>
+    </div>
     <br><br>
     <ul id="btn-collection" class="collapsible expandable ">
         <li>
@@ -111,7 +111,7 @@
                     <h5 class="white-text">Footer Heading</h5>
                     <p class="grey-text text-lighten-4">Text Placeholder</p>
                 </div>
-                <!-- <div class="col l4 offset-l2 s12">
+                 <div class="col l4 offset-l2 s12">
                   <h5 class="white-text">Links</h5>
                   <ul>
                     <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
@@ -119,7 +119,7 @@
                     <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
                   </ul>
-                </div> -->
+                </div> 
             </div>
         </div>
         <div class="footer-copyright">

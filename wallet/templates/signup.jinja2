@@ -14,23 +14,24 @@
 </head>
 
 <body>
-    <nav class="nav-extended">
-        <div>
-            <div class="row">
+    <div class="navbar-fixed">
+        <nav class="nav-extended">
+            <div style="height:80px" class="nav-wrapper">
+                <div class="">
+                    <div class="">
+                        <img src="{{request.static_url('wallet:static/images/Paydex.png')}}" alt="" id="logo">
 
-                <div class="col s12">
-
-                    <img src="" alt="" id="logo">LogoPlaceholder
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="nav-content">
-            <ul class="tabs">
-                <li class="tab"><a class="active" href="#user">User</a></li>
-                <li class="tab"><a href="#merchant">Merchant</a></li>
-            </ul>
-        </div>
-    </nav><br>
+            <div class="nav-content">
+                <ul class="tabs">
+                    <li class="tab"><a class="active" href="#user">User</a></li>
+                    <li class="tab"><a href="#merchant">Partner</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div><br><br><br>
     <div id="user">
         <form action="/createCus" method="post"><br><br>
             <div class="input-field">
@@ -51,17 +52,22 @@
             </div><br>
             <div class="input-field">
                 <i class="fas fa-key prefix colorgrey" style="font-size: 25px;"></i>
-                <input type="password" id="phone" name="password" class="autocomplete validate">
-                <label class="active" for="phone">Password</label>
+                <input type="password" id="upassword" name="password" class="autocomplete validate">
+                <label class="active" for="upassword">Password</label>
                 <span class="helper-text">Optional</span>
+                <br><br>
+                <div class="right-align">
+                    <a class="right-align" href="">Already have an account?</a>
+                </div>
             </div><br>
+                
             <center><button class="waves-effect waves-light btn" type="submit" name='form.submitted'>
-                    &nbsp;sign up</a></center><br>
+                &nbsp;sign up</a></center><br>
             <br>
             <br>
         </form>
     </div>
-    <div id="merchant">
+    <div id="merchant"><br><br>
         <form action="/createMer" method="post">
             <div class="input-field">
                 <i class="fas fa-user-alt prefix colorgrey" style="font-size: 25px;"></i>
@@ -75,23 +81,24 @@
             </div><br>
             <div class="input-field">
                 <i class="fas fa-envelope prefix colorgrey" style="font-size: 25px;"></i>
-                <input type="email" id="memail" name="email" class="validate" required>
+                <input type="email" id="memail" name="email" class="autocomplete validate" required>
                 <label class="active" for="memail">Email</label>
                 <span class="helper-text" data-error="Please enter email in correct format"></span>
             </div>
             <div class="input-field">
                 <i class="fas fa-map-marked-alt prefix colorgrey" style="font-size: 25px;"></i>
-                <input type="text" id="address" name="address" class="autocomplete" required />
+                <input type="text" id="maddress" name="address" class="autocomplete" required />
                 <label class="active" for="address">Address of Shop</label>
             </div><br>
             <div class="input-field">
                 <i class="fas fa-key prefix colorgrey" style="font-size: 25px;"></i>
                 <input type="text" id="mpassword" name="password" class="autocomplete" required />
                 <label class="active" for="mpassword">Password</label>
-                <span class="helper-text">Optional</span>
             </div><br>
+            <div class="right-align">
+            <a class="" href="">Already have an account?</a></div><br><br>
             <center> <button class="waves-effect waves-light btn" type="submit" name="form.submitted">
-                    &nbsp;sign up</center><br>
+                &nbsp;sign up</center><br>
             <br>
             <br>
 
