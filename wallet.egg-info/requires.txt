@@ -3,6 +3,7 @@ pyramid
 pyramid_jinja2
 pyramid_debugtoolbar
 waitress
+pyramid_beaker
 
 [testing]
 WebTest>=1.3.1
