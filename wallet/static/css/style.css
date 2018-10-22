@@ -13,10 +13,15 @@
 }
 .function-container
 {
-    border: 1px solid #c5c3c3;
+    border: 4px dashed #c5c3c3;
     border-radius: 10px;
     padding: 0;
-    margin: 0;
+    margin: auto;
+    width: 95vw;
+}
+.left
+{
+    padding-left:25px 
 }
 #otp-container
 {
@@ -26,7 +31,7 @@
 #login-pswrd
 {
     width: 55vw;
-    height: 60vh;
+    height: 70vh;
 }
 #resend
 {
@@ -41,16 +46,20 @@
     width: 55vw;
     height: 55vh
 }
-#expire
-{
-    position: relative;
-    bottom: 40px;
-    color: grey
-}
 .balance
 {
+    padding: 5px;
+    border-radius: 5px;
     font-size: 1.2rem;
-    float: right;
+    display: flex;
+    justify-content: space-between;
+    color: rgb(110, 108, 108);
+}
+.right
+{
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1.2rem;
     position: relative;
     right: 10px;
     color: rgb(110, 108, 108);
@@ -73,13 +82,13 @@
     margin: 5%;
     width: 90vw
 }
+.flexBox
+{
+    height: 400px;
+}
 .history-items
 {
     margin: 10px;
-}
-#quote
-{
-    background: #eaeaea;
 }
 .recharge
 {
@@ -91,13 +100,9 @@
     width: 33vw;
     margin-left: 5%;
 }
-.flexBox
-{
-    width: 100%;
-    height: 60vh
-}
 #btns
 {
+    padding-top: 15px;
     display: inline;
     float: right;
 }
@@ -105,10 +110,155 @@
 {
     display: flex;
     flex-direction: row;
-    width: 97vw;
+    width: 95vw;
 }
-@media(max-width:700px)
+#logo
+{
+    margin-top: 21px;
+    margin-left: 5px;
+    position: absolute;
+    height: 8vh;
+}
+
+#user,#merchant
+{
+    display: flex;
+    margin: 0 20vw 0 20vw;
+    flex-direction: column;
+    justify-content: center
+}
+#know-more
+{
+    padding: 10px 25px;
+    color: white;
+    background: #42a5f5;
+    border-radius: 50px;
+    transition: 0.7s;
+    font-size: 3.5vh;
+    border: none
+}
+#know-more:hover
+{
+    background: #9da7ff;
+    cursor: pointer;
+}
+#quote
+{
+    opacity: 0;
+    transition: 3s;
+    height: 92vh
+}
+blockquote
+{
+    margin: 0;
+    margin-top: 15px;
+    line-height:1.7;
+    font-size: 7vh;
+    padding: 25vh 5vw 0 5vw;
+    color: rgb(255, 255, 255);
+    letter-spacing: 1.25px;
+    word-spacing: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    position: absolute;
+}
+blockquote::before{
+    content: "\201C";
+    position: absolute;
+    font-size: 40vh;
+    top: 0%;
+    opacity: 0.2;
+    left: 0;
+}
+#features{
+    display: flex;
+    justify-content: center;
+}
+#pic
+{
+    height: 100vh;
+    background: url('../img/other.png'); 
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#features .card
+{
+    background: #fcfafa
+}
+#features i{
+    color: rgb(67, 154, 253);
+}
+#floating-panel {
+    padding-left: 10px;
+}
+#address
+{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+#submit:hover
+{
+    background: #3245f3;
+    cursor: pointer;
+}
+#submit
+{
+    border: none;
+    padding: 10px 20px;
+    background: rgb(67, 154, 253);
+    border-radius: 5px;
+    transition: 1.5s;
+    color: white;
+    margin: 15px;
+}
+#map{
+  height: 70vh;
+  width: 100%;
+}
+.feature-cards
 {   
+    width: 30vw;
+    margin: 20px;
+    font-size: 1.2rem
+}
+#choose
+{
+    text-align: center;
+    color: white;
+    width: 100%;
+    height: 90px;
+    padding: 20px;
+    font-size: 3rem;
+    color: rgb(88, 86, 86);
+}
+  @media(max-width:700px)
+{  
+    .left{
+        padding: 0;
+    }
+     #features
+    {
+        flex-direction: column
+    }
+   .balance{
+       flex-direction: column;
+       justify-content: center;
+   }
+   .right
+   {
+       padding-left: 10px;
+   }
+    .feature-cards
+    {
+        width: 75vw;
+        margin:10px;
+    }
+    #btns li a
+    {
+        margin: 5px;
+    }
     .user-transfer
     {
         flex-direction: column
@@ -117,15 +267,6 @@
     #btn-collection
     {
         width: 90vw;
-    }
-    #flex-container
-    {
-        flex-direction: column
-    }
-    .flexBox
-    {
-        width: 100%;
-        height: 50vh;
     }
     #merchant-recharge
     {
@@ -139,11 +280,22 @@
     {
         width: 85vw;
     }
-}
-#user,#merchant
-{
-    display: flex;
-    margin: 0 20vw 0 20vw;
-    flex-direction: column;
-    justify-content: center
+    blockquote
+    {
+        font-size: 5vh;
+        padding: 20vh 5vw 0 5vw;
+        margin-top: 0;
+    }
+    blockquote::before
+    {
+        top:-5%;
+    }
+    #know-more
+    {
+        margin-top: 0px;
+    }
+    #pic
+    {
+        display: none;
+    }
 }
