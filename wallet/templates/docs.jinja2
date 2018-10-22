@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project Name</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/materialize.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="navbar-fixed">
+        <nav class="nav-extended">
+            <div style="height:80px" class="nav-wrapper">
+                <div class="">
+                    <div class="">
+                        <img src="img/Paydex.png" alt="" id="logo">
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div><br><br><br>
+        <div id="docs">
+            <h5 style="padding:15px; line-height: 1.4;word-spacing: 5px">As a partner of our Organization, It is your responsibility and our duty that verification is duly done. <br>Please upload the required documents to get your account started.</h5>
+            <div style="padding:15px;">
+                <form action="" method="POST">
+                    <div class="file-field input-field">
+                        <div class="btn blue lighten-3">
+                            <span class="black-text">Upload aadhar</span>
+                            <input type="file" required>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div><br>
+                    <div class="file-field input-field">
+                        <div class="btn blue lighten-3">
+                            <span class="black-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Upload PAN&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <input type="file" required>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div><br><br>
+                    <center> <button class="waves-effect waves-light btn">
+                            &nbsp;Submit Documents</a></center><br>
+                </form><br>
+            </div>
+            
+        </div>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Heading</h5>
+                    <p class="grey-text text-lighten-4">Text Placeholder</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 The Decoits
+                <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="./js/bin/materialize.js"></script>
+    <script>
+        M.AutoInit();
+        var elem = document.querySelector('.collapsible.expandable');
+        var instance = M.Collapsible.init(elem, {
+            accordion: false
+        });
+    </script>
+</body>
+
+</html>

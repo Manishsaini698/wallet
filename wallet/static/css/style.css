@@ -7,9 +7,19 @@
 {
     margin-left:5%;color: #333
 }
+#balance-text{
+    position:absolute;
+}
 .colorgrey
 {
     color: rgb(117, 115, 115);
+}
+#docs
+{
+    height: 90vh;
+}
+#success{
+    height:75vh;
 }
 .function-container
 {
@@ -21,7 +31,7 @@
 }
 .left
 {
-    padding-left:25px 
+    padding-left:10px;
 }
 #otp-container
 {
@@ -62,7 +72,7 @@
     font-size: 1.2rem;
     position: relative;
     right: 10px;
-    color: rgb(110, 108, 108);
+    color: rgba(110, 108, 108, 0.651);
 }
 #merchant-recharge
 {
@@ -185,6 +195,9 @@ blockquote::before{
 {
     background: #fcfafa
 }
+#map-container{
+    width: 60vw;
+}
 #features i{
     color: rgb(67, 154, 253);
 }
@@ -233,8 +246,35 @@ blockquote::before{
     font-size: 3rem;
     color: rgb(88, 86, 86);
 }
+#history li{
+    border-bottom: 1px solid #eaeaea
+}
+.date
+{
+    margin-left: 20vw;
+}
+#partner-list li
+{
+    margin: 10px
+}
+.add
+{
+    margin-left: 20vw;
+    color: rgb(62, 235, 62)
+}
+.subtract
+{
+    margin-left: 20vw;
+    color: red;
+}
+#history{
+    padding: 0;
+}
   @media(max-width:700px)
 {  
+    .collapsible-body{
+        padding: 12px;
+    }
     .left{
         padding: 0;
     }
@@ -298,4 +338,30 @@ blockquote::before{
     {
         display: none;
     }
+    .right{
+        color: rgba(110, 108, 108, 0.767);
+        margin-top: 15px
+    }
+    #map-container{
+        width: 100%
+    }
+    .date
+{
+    margin-left: 5vw;
+}
+.add
+{
+    margin-left: 5vw;
+    color: rgb(62, 235, 62)
+}
+.subtract
+{
+    margin-left: 5vw;
+    color: red;
+}
+
+.history-items
+{
+    margin: 10px;
+}
 }

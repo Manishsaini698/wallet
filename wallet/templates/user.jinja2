@@ -34,15 +34,18 @@
         </nav>
     </div><br><br><br>
     <div class="balance">
-            <div class="left"> 
-                <b>Account Balance :
-        </b> <i class="fas fa-rupee-sign" style="font-size: 1.1rem;"></i></a> XXXX </div>
-   
-        <div class="right">  <b>Credit Limit :
-    </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-rupee-sign" style="font-size: 1.2rem;"></i>&nbsp;XXXX <br><b>You can add(this
-        week) :&nbsp;</b><i class="fas fa-rupee-sign" style="font-size: 1.1rem;"></i>&nbsp;XXXX</div>
+        <div class="left">
+            <i class="fas fa-wallet" style="font-size: 50px;"></i>
+            <b> <span id="balance-text">Account Balance</span>
+            </b> <span style="font-size:1.5rem">&nbsp;&nbsp;<i class="fas fa-rupee-sign" style="font-size: 1.3rem;"></i></a>
+                XXXX</span></span> </div>
+        <div class="right"> <b>Credit Limit :
+            </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+                class="fas fa-rupee-sign" style="font-size: 1.2rem;"></i>&nbsp;XXXX <br><b>You can add(this
+                week) :&nbsp;</b><i class="fas fa-rupee-sign" style="font-size: 1.1rem;"></i>&nbsp;XXXX</div>
     </div>
     </div>
+    
     <br>
     <br>
     <div class="function-container hoverable">
@@ -84,46 +87,65 @@
                     &nbsp;Request</a></div>
         </div><br><br>
 
-    </div>
+   </div>
     <br>
     <br>
     <center>
         <h3>Find our Partners near you!</h3>
     </center><br><br>
     <center>
-        <div id="floating-panel">
-            <input placeholder="Enter your location" id="address" type="textbox">
-            <input id="submit" type="button" value="Get Partners">
-        </div><br>
-        <div id="map"></div>
+        <div id="map-container">
+                <div class="nav-content">
+                        <ul class="tabs">
+                            <li class="tab"><a class="active" href="#location">Get by Location</a></li>
+                            <li class="tab"><a href="#map-location">
+                                    Get by Map
+                                </a></li>
+                        </ul>
+                    </div>
+                    <div id="location">
+                            <div id="floating-panel">
+                                    <input placeholder="Enter your location" id="address" type="textbox">
+                                    <input id="submit" type="button" value="Get Partners">
+                                </div><br>
+                                <ul id="partner-list">
+                                    <li>Lorem ipsum dolor sit amet.</li>
+                                    <li>Reprehenderit at voluptates esse tempore.</li>
+                                    <li>Incidunt culpa non praesentium aspernatur.</li>
+                                    <li>Quo recusandae ullam illo animi.</li>
+                                    <li>Delectus repellat nulla maxime quia!</li>
+                                    <li>Quos ipsum eos nam in.</li>
+                                    <li>Explicabo quidem ad natus doloribus!</li>
+                                    <li>Consectetur ab magnam eum quidem.</li>
+                                    <li>Quasi cum molestiae illum quisquam.</li>
+                                    <li>Dicta quasi maxime similique itaque.</li>
+                                </ul>
+                    </div>
+                    <div id="map-location">
+                            <div id="floating-panel">
+                                    <input placeholder="Enter your location" id="address" type="textbox">
+                                    <input id="submit" type="button" value="Get Partners">
+                                </div><br>
+                                <div id="map"></div>
+                    </div>
+        </div>
     </center>
     <ul id="btn-collection" class="collapsible expandable">
         <li>
-            <div class="collapsible-header" style="width:100%;"><i class="fas fa-map-marked-alt" style="font-size: 20px;"></i>Find Merchants Near Me</div>
-            <div class="collapsible-body"><span>
-                    <ol id="history">
-                        {% for txn in history %}
-                        <li class="history-items">{{ txn['to'] }}</li>
-                        {% endfor %}
-                    </ol>
-                </span></div>
-        </li>
-        <li>
-
             <div class="collapsible-header"><i class="fas fa-history" style="font-size: 20px;"></i>Last 10 Transaction
                 History</div>
             <div class="collapsible-body"><span>
                     <ol id="history">
-                        <li class="history-items">Lorem, ipsum.</li>
-                        <li class="history-items">Nostrum, dolorem!</li>
-                        <li class="history-items">Vero, voluptatibus.</li>
-                        <li class="history-items">Molestiae, debitis.</li>
-                        <li class="history-items">Tempore, atque.</li>
-                        <li class="history-items">Ab, inventore.</li>
-                        <li class="history-items">Esse, non!</li>
-                        <li class="history-items">Illo, saepe.</li>
-                        <li class="history-items">Labore, dolorum?</li>
-                        <li class="history-items">Ullam, adipisci?</li>
+                            <li class="history-items">Lorem, ipsum. <span class="date">30 oct. 20XX</span> <span class="add">+200</span></li>
+                            <li class="history-items">Lorem, ipsum.<span class="date"> 30 oct. 20XX</span>  <span class="subtract">-100</span></li>
+                            <li class="history-items">Vero, voluptatibus.</li>
+                            <li class="history-items">Molestiae, debitis.</li>
+                            <li class="history-items">Tempore, atque.</li>
+                            <li class="history-items">Ab, inventore.</li>
+                            <li class="history-items">Esse, non!</li>
+                            <li class="history-items">Illo, saepe.</li>
+                            <li class="history-items">Labore, dolorum?</li>
+                            <li class="history-items">Ullam, adipisci?</li>
                     </ol>
 
                 </span></div>
@@ -158,8 +180,8 @@
         </div>
     </footer>
 
-    <script src="{{request.static_url('wallet:static/js/bin/materialize.js')}}"></script>
-    <script src="{{request.static_url('wallet:static/js/index.js')}}"></script>
+    <script src="./js/bin/materialize.js"></script>
+    <script src="js/index.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap">
     </script>
     <script>
