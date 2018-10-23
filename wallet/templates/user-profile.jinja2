@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project Name</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{request.static_url('wallet:static/css/materialize.css')}}" />
+    <link rel="stylesheet" href="{{request.static_url('wallet:static/css/style.css')}}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="navbar-fixed">
+        <nav class="nav-extended">
+            <div>
+                <div class="">
+                    <div class="">
+                        <img src="{{request.static_url('wallet:static/images/Paydex.png')}}" alt="" id="logo">
+                        <ul id="btns">
+                            <!-- <li> <a class="waves-effect waves-light btn list-items">Logout</a></li> -->
+                            <li><a class="btn-floating"><i class="fas fa-sign-out-alt" style="font-size: 20px;"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <center>
+    <div id="profile">
+            <div id="pp">
+                    <i class="fas fa-user" style="font-size: 300px;"></i>
+            </div>
+            <div id="form">
+                <ul id="profile-list">
+                   <li class="profile-items">
+                        <table class="striped">
+                               <tbody>
+                                  <tr>
+                                    <td>Name</td>
+                                    <td></td>
+                                    <td>Test-name</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Phone</td>
+                                    <td></td>
+                                    <td>8898764611</td>
+                                  </tr>
+                                  <tr>
+                                        <td>Email</td>
+                                        <td></td>
+                                        <td>abc@xxx.com</td>
+                                      </tr>
+                                </tbody>
+                              </table>
+                   </li><br>
+                    <h3>Reset Password</h3><br>
+                    <li class="profile-items"><div class="input-field col s12">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Current Password</label>
+                          </div></li>
+                    <li class="profile-items"><div class="input-field col s12">
+                            <input id="npassword" type="password" class="validate">
+                            <label for="password">New Password</label>
+                          </div></li>
+                    <li class="profile-items"><div class="input-field col s12">
+                            <input id="cnpassword" type="password" class="validate">
+                            <label for="password">Confirm New Password</label>
+                          </div></li>
+
+                    <li class="profile-items"><button class="btn">Change Password</button></li>
+                </ul>
+            </div>
+    </div></center>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Heading</h5>
+                    <p class="grey-text text-lighten-4">Text Placeholder</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 The Decoits
+                <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
+            </div>
+        </div>
+    </footer>
+
+    <script src=src="{{request.static_url('wallet:static/js/bin/materialize.js')}}"></script>
+       </script>
+    <script>
+        M.AutoInit();
+        var elem = document.querySelector('.collapsible.expandable');
+        var instance = M.Collapsible.init(elem, {
+            accordion: false
+        });
+    </script>
+</body>
+
+</html>
