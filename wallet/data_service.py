@@ -8,25 +8,27 @@ import datetime
 
 connect('wallet')
 
-def get_for_auth(mobile):
+def get_for_auth_user(mobile):
         return models.Customer.objects(mobile=mobile).first()
+
+def get_for_auth_mer(mobile):
+        return models.Merchant.objects(mobile=mobile).first()
 
 def create_customer(**kwargs):
     customer = models.Customer()
     customer.email = kwargs['email']
     customer.name = kwargs['name'].capitalize()
     customer.mobile = kwargs['mobile']
-    customer.hashed_password = kwargs['password']    
+    customer.hashed_password = kwargs['password']
     customer.save()
 
 def create_merchant(**kwargs):
-    customer = models.Merchant()
-    customer.email = kwargs['email']
-    customer.name = kwargs['name'].capitalize()
-    customer.mobileno = kwargs['mobileno']
-    customer.hashed_pass = kwargs['hashed_password']
-    customer.cid = ''.join(customer.name.split(' ')).lower()
-    customer.save()
+    merchant = models.Merchant()
+    merchant.email = kwargs['email']
+    merchant.name = kwargs['name'].capitalize()
+    merchant.mobileno = kwargs['mobile']
+    merchant.hashed_pass = kwargs['hashed_password']
+    merchant.save()
 
 
 def send_otp(**kwargs):
@@ -55,7 +57,6 @@ def transaction(**kwargs):
     transaction.trans_from = kwargs['sender'] 
     transaction.trans_to = kwargs['reciever']
     transaction.trans_value = kwargs['payment']
-    print(kwargs['otp'])
     transaction.trans_otp = kwargs['otp']
     return transaction.save() 
             
@@ -73,6 +74,7 @@ def transact(**kwargs):
         sender.save()
         reciever.save()
         transc.save()
+        transaction_freelock(transc.trans_from)
 
 def trans_his(uid):
     user = models.Customer.objects(mobile=uid).first()
@@ -86,5 +88,20 @@ def trans_his(uid):
         a['value'] = trans.trans_value
         a['date'] = trans.trans_time
         return_this.append(a)
-    print(return_this)
     return return_this
+
+def check_lock(sender):
+    user = models.TransactionLock.objects(trans_sender=sender)
+    print(user)
+    if user == []:
+        return False
+    else: 
+        True
+
+def transaction_lock(sender):
+    trans = models.TransactionLock()
+    trans.trans_sender = sender
+    trans.save()
+
+def transaction_freelock(sender):
+    models.TransactionLock.objects(trans_sender=sender).first().delete()

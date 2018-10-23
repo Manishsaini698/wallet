@@ -30,7 +30,9 @@ def main(global_config, **settings):
     config.add_route('passLogin','/passLogin')
     config.add_route('otpVerify','/otpVerify/{txn}')  
     config.add_route('user','/user')  
+    config.add_route('merchant','/merchant')  
     config.add_route('userTransaction','/userTransaction')   
+    config.add_route('reqTransaction','/reqTransaction')  
     config.scan('wallet.views')
  
     return config.make_wsgi_app()

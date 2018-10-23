@@ -24,7 +24,7 @@
                     <div class="">
                         <img src="{{request.static_url('wallet:static/images/Paydex.png')}}" alt="" id="logo">
                         <ul id="btns">
-                            <!-- <li> <a class="waves-effect waves-light btn list-items">Logout</a></li> -->
+                            <!-- <li> <a class="waves-effect waves-light btn list-items" href="/logout">Logout</a></li> -->
                             <li><a href="" class="btn-floating"><i class="far fa-user" style="font-size: 20px;"></i></a></li>
                             <li><a class="btn-floating"><i class="fas fa-sign-out-alt" style="font-size: 20px;"></i></a></li>
                         </ul>
@@ -34,6 +34,7 @@
         </nav>
     </div><br><br><br>
     <div class="balance">
+<<<<<<< Updated upstream
         <div class="left">
             <i class="fas fa-wallet" style="font-size: 50px;"></i>
             <b> <span id="balance-text">Account Balance</span>
@@ -43,6 +44,15 @@
             </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
                 class="fas fa-rupee-sign" style="font-size: 1.2rem;"></i>&nbsp;XXXX <br><b>You can add(this
                 week) :&nbsp;</b><i class="fas fa-rupee-sign" style="font-size: 1.1rem;"></i>&nbsp;XXXX</div>
+=======
+            <div class="left"> 
+                <b>Account Balance : 
+        </b> <i class="fas fa-rupee-sign" style="font-size: 1.1rem;"></i></a>{{ wallet_bal}}</div>
+   
+        <div class="right">  <b>Credit Limit :
+    </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-rupee-sign" style="font-size: 1.2rem;"></i>&nbsp;20000.00<br><b>You can add(this
+        month) :&nbsp;</b><i class="fas fa-rupee-sign" style="font-size: 1.1rem;"></i>&nbsp;{{ 20000 - wallet_bal }}</div>
+>>>>>>> Stashed changes
     </div>
     </div>
     
@@ -50,6 +60,7 @@
     <br>
     <div class="function-container hoverable">
         <h4 class="heading">Transfer</h4><br>
+        <form action="/userTransaction" method="post">
         <div class="user-transfer">
             <div class="input-field merchantContainer">
                 <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
@@ -58,36 +69,43 @@
             </div><br>
             <div class="input-field merchantContainer">
                 <i class="fas fa-rupee-sign prefix colorgrey" style="font-size: 25px;"></i>
-                <input type="text" id="moneyToTransfer" name = "money" class="autocomplete">
+                <input type="text" id="moneyToTransfer" name="money" class="autocomplete">
                 <label for="moneyToTransfer">Amount</label>
             </div><br>
-            <div class="merchantContainer"><a class="waves-effect waves-light btn recharge"><i class="fas fa-exchange-alt"
+            <div class="merchantContainer"><button class="waves-effect waves-light btn recharge" type="submit" name="form.submitted"><i class="fas fa-exchange-alt"
                         style='font-size:15px ;position:relative ; margin-bottom:0;'></i>
-                    &nbsp;Tranfer</a></div>
+                    &nbsp;Tranfer</button></div>
         </div><br><br>
+        </form>
     </div><br>
     <br>
     <br>
 
     <div class="function-container hoverable">
         <h4 class="heading">Request</h4><br>
+        <form action="/reqTransaction" method="post">
         <div class="user-transfer">
             <div class="input-field merchantContainer">
                 <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
-                <input type="text" id="userToRequest" class="autocomplete">
+                <input type="text" id="userToRequest" name="mobileno" class="autocomplete">
                 <label class="active" for="userToRequest">Mobile Number</label>
             </div><br>
             <div class="input-field merchantContainer">
                 <i class="fas fa-rupee-sign prefix colorgrey" style="font-size: 25px;"></i>
-                <input type="text" id="moneyToRequest" class="autocomplete">
+                <input type="text" id="moneyToRequest" name="money" class="autocomplete">
                 <label for="moneyToRequest">Amount</label>
             </div><br>
-            <div class="merchantContainer"><a class="waves-effect waves-light btn recharge"><i class="fas fa-bolt"
+            <div class="merchantContainer"><button class="waves-effect waves-light btn recharge" type="submit" name="form.submitted" ><i class="fas fa-bolt"
                         style='font-size:15px ;position:relative ; margin-bottom:0;'></i>
-                    &nbsp;Request</a></div>
+                    &nbsp;Request</button></div>
         </div><br><br>
+<<<<<<< Updated upstream
 
    </div>
+=======
+        </div>
+        </form>
+>>>>>>> Stashed changes
     <br>
     <br>
     <center>
@@ -132,10 +150,23 @@
     </center>
     <ul id="btn-collection" class="collapsible expandable">
         <li>
+<<<<<<< Updated upstream
+=======
+            <div class="collapsible-header" style="width:100%;"><i class="fas fa-map-marked-alt" style="font-size: 20px;"></i>Find Merchants Near Me</div>
+            <div class="collapsible-body"><span>
+                    <ol id="history">
+
+                    </ol>
+                </span></div>
+        </li>
+        <li>
+
+>>>>>>> Stashed changes
             <div class="collapsible-header"><i class="fas fa-history" style="font-size: 20px;"></i>Last 10 Transaction
                 History</div>
             <div class="collapsible-body"><span>
                     <ol id="history">
+<<<<<<< Updated upstream
                             <li class="history-items">Lorem, ipsum. <span class="date">30 oct. 20XX</span> <span class="add">+200</span></li>
                             <li class="history-items">Lorem, ipsum.<span class="date"> 30 oct. 20XX</span>  <span class="subtract">-100</span></li>
                             <li class="history-items">Vero, voluptatibus.</li>
@@ -146,6 +177,11 @@
                             <li class="history-items">Illo, saepe.</li>
                             <li class="history-items">Labore, dolorum?</li>
                             <li class="history-items">Ullam, adipisci?</li>
+=======
+                        {% for txn in history %}
+                        <li class="history-items">{{ txn['to'] }} -    {{ txn['value'] }}</li>
+                        {% endfor %}
+>>>>>>> Stashed changes
                     </ol>
 
                 </span></div>

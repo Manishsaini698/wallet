@@ -4,13 +4,14 @@ import bcrypt
 
 
 def check_login(mobile, password):
-    user = ds.get_for_auth(mobile)
-
-    if user and check_password(password, user.hashed_password):
-        print(user)
+    user = ds.get_for_auth_user(mobile)
+#    mer = ds.get_for_auth_mer(mobile)
+    if user is not None and check_password(password, user.hashed_password):
         return user
-    else :
-        return None
+#    elif mer is not None and check_password(password, mer.hashed_password):
+#        return {'connecter':'mer','mer':mer}
+    else:
+        None
        
 
 def hash_password(pw):
