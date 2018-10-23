@@ -52,6 +52,9 @@
         <div class="right">  <b>Credit Limit :
     </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-rupee-sign" style="font-size: 1.2rem;"></i>&nbsp;20000.00<br><b>You can add(this
         month) :&nbsp;</b><i class="fas fa-rupee-sign" style="font-size: 1.1rem;"></i>&nbsp;{{ 20000 - wallet_bal }}</div>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     </div>
     </div>
@@ -100,8 +103,13 @@
                     &nbsp;Request</button></div>
         </div><br><br>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
    </div>
+=======
+        </div>
+        </form>
+>>>>>>> Stashed changes
 =======
         </div>
         </form>
@@ -167,6 +175,7 @@
             <div class="collapsible-body"><span>
                     <ol id="history">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                             <li class="history-items">Lorem, ipsum. <span class="date">30 oct. 20XX</span> <span class="add">+200</span></li>
                             <li class="history-items">Lorem, ipsum.<span class="date"> 30 oct. 20XX</span>  <span class="subtract">-100</span></li>
                             <li class="history-items">Vero, voluptatibus.</li>
@@ -177,6 +186,11 @@
                             <li class="history-items">Illo, saepe.</li>
                             <li class="history-items">Labore, dolorum?</li>
                             <li class="history-items">Ullam, adipisci?</li>
+=======
+                        {% for txn in history %}
+                        <li class="history-items">{{ txn['to'] }} -    {{ txn['value'] }}</li>
+                        {% endfor %}
+>>>>>>> Stashed changes
 =======
                         {% for txn in history %}
                         <li class="history-items">{{ txn['to'] }} -    {{ txn['value'] }}</li>
