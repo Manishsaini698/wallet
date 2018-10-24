@@ -12,6 +12,13 @@ def check_login(mobile, password):
 #        return {'connecter':'mer','mer':mer}
     else:
         None
+
+def check_login_mer(mobile, password):
+    mer = ds.get_for_auth_mer(mobile)
+    if mer is not None and check_password(password, mer.hashed_password):
+        return mer
+    else:
+        None
        
 
 def hash_password(pw):

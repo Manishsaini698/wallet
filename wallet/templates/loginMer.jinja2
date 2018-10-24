@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Paydex|Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{request.static_url('wallet:static/css/materialize.css')}}" />
+    <link rel="stylesheet" href="{{request.static_url('wallet:static/css/style.css')}}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="nav-extended">
+        <div class="nav-wrapper">
+            <div class="row">
+                <div class="col s12">
+                    <img src="{{request.static_url('wallet:static/images/Paydex.png')}}" alt="" id="logo">
+                </div>
+            </div>
+        </div>
+        <div class="nav-content">
+            <ul class="tabs">
+                <li class="tab"><a class="active" href="#login-otp">Login with OTP</a></li>
+                <li class="tab"><a href="#login-pswrd">Login with Password</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <center>
+        <div id="login-otp" class="col s12">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <form action="/otpLogin" method="post">
+                <div class="input-field">
+                    <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
+                    <input type="text" id="phone" name="mobileno" class="autocomplete">
+                    <label class="active" for="phone">Mobile Number</label>
+                </div><br>
+                <button class="waves-effect waves-light btn" type="submit" name="form.submitted">
+                    &nbsp;Verify</button>
+            </form>
+            <br>
+            <br>
+            <br>
+        </div>
+    </center>
+    <center>
+        <div id="login-pswrd" class="col s12">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <form action="/passLoginMer" method="post">
+                <div class="input-field">
+                    <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
+                    <input type="text" id="phone1" name="mobileno" class="autocomplete">
+                    <label class="active" for="phone1">Mobile Number</label>
+                </div><br>
+                <div class="input-field">
+                    <i class="fas fa-lock prefix colorgrey" style="font-size: 25px;"></i>
+                    <input type="text" id="password" name="password" class="autocomplete">
+                    <label class="active" for="password">Password</label>
+                </div><br>
+                <button class="waves-effect waves-light btn" type="submit" name="form.submitted">
+                        &nbsp;Login</button>
+    
+            </form>
+    </center>
+    </div>
+
+   <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">About PayDex</h5>
+                    <p class="grey-text text-lighten-4">blah blah blah</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Other info</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Why become our Partner?</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Customer's Benifit</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Know about our team</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">FAQ</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 The Decoits
+                <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
+            </div>
+        </div>
+    </footer>
+
+
+     <script src="{{request.static_url('wallet:static/js/bin/materialize.js')}}"></script>
+    <script>
+        M.AutoInit();
+    </script>
+</body>
+
+</html>

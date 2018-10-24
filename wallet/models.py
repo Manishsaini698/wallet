@@ -26,6 +26,7 @@ class Merchant(mongoengine.Document):
         mobile = mongoengine.StringField()   
         address = mongoengine.StringField()
         login_otp = mongoengine.StringField()
+        wallet_bal = mongoengine.DecimalField(default=0.0)
         verified = mongoengine.StringField() 
 
 class Transaction(mongoengine.Document):

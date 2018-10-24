@@ -19,16 +19,39 @@ def create_customer(**kwargs):
     customer.email = kwargs['email']
     customer.name = kwargs['name'].capitalize()
     customer.mobile = kwargs['mobile']
-    customer.hashed_password = kwargs['password']
+    customer.hashed_password = kwargs['hashed_password']
     customer.save()
 
 def create_merchant(**kwargs):
     merchant = models.Merchant()
     merchant.email = kwargs['email']
     merchant.name = kwargs['name'].capitalize()
-    merchant.mobileno = kwargs['mobile']
-    merchant.hashed_pass = kwargs['hashed_password']
+    merchant.mobile = kwargs['mobile']
+    merchant.address = kwargs['address']
+    merchant.hashed_password = kwargs['hashed_password']
     merchant.save()
+
+def send_login_otp(**kwargs):
+    totp = pyotp.TOTP('base32secret3232')
+    message = totp.now()
+    mobile = kwargs['mobile']
+    user = models.Otp()
+    user.mobile = mobile
+    user.login_otp = message
+    user.save()
+    send_email('manish1216237@jmit.ac.in',message)
+    return message
+
+def send_signup_otp(**kwargs):
+    totp = pyotp.TOTP('base32secret3232')
+    message = totp.now()
+    mobile = kwargs['mobile']
+    user = models.Otp()
+    user.mobile = mobile
+    user.signup_otp = message
+    user.save()
+    send_email('manish1216237@jmit.ac.in',message)
+    return message
 
 
 def send_otp(**kwargs):
@@ -45,6 +68,13 @@ def otp_verify(**kwargs):
     mobile = kwargs['mobile']
     user = models.Customer.objects(mobile=mobile).first()
     if user.login_otp == kwargs['otp']:
+        return True
+
+
+def otp_verify_signup(**kwargs):
+    mobile = kwargs['mobile']
+    user = models.Otp.objects(mobile=mobile).first()
+    if user.signup_otp == kwargs['otp']:
         return True
 
 
@@ -69,6 +99,38 @@ def transact(**kwargs):
         sender.wallet_bal = sender.wallet_bal - transc.trans_value
         sender.trans_history.append(transc.id)
         reciever = models.Customer.objects(mobile=transc.trans_to).first()
+        reciever.wallet_bal =reciever.wallet_bal + transc.trans_value
+        transc.trans_status = True    
+        sender.save()
+        reciever.save()
+        transc.save()
+        transaction_freelock(transc.trans_from)
+            
+def transact_mer(**kwargs):
+    tid = kwargs['txn']
+    otp = kwargs['otp']  
+    transc = models.Transaction.objects(id=tid).first()
+    if transc.trans_otp == otp:
+        sender = models.Merchant.objects(mobile=transc.trans_from).first()
+        sender.wallet_bal = sender.wallet_bal - transc.trans_value
+        sender.trans_history.append(transc.id)
+        reciever = models.Customer.objects(mobile=transc.trans_to).first()
+        reciever.wallet_bal =reciever.wallet_bal + transc.trans_value
+        transc.trans_status = True    
+        sender.save()
+        reciever.save()
+        transc.save()
+        transaction_freelock(transc.trans_from)
+
+def transact_merD(**kwargs):
+    tid = kwargs['txn']
+    otp = kwargs['otp']  
+    transc = models.Transaction.objects(id=tid).first()
+    if transc.trans_otp == otp:
+        sender = models.Customer.objects(mobile=transc.trans_from).first()
+        sender.wallet_bal = sender.wallet_bal - transc.trans_value
+        sender.trans_history.append(transc.id)
+        reciever = models.Merchant.objects(mobile=transc.trans_to).first()
         reciever.wallet_bal =reciever.wallet_bal + transc.trans_value
         transc.trans_status = True    
         sender.save()

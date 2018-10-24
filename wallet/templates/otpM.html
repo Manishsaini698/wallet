@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Project Name</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="{{request.static_url('wallet:static/css/materialize.css')}}" />
+    <link rel="stylesheet" href="{{request.static_url('wallet:static/css/style.css')}}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="nav-extended">
+        <div>
+            <div class="row">
+
+                <div class="col s12">
+
+                    <img src="" alt="" id="logo">LogoPlaceholder
+                </div>
+            </div>
+        </div>
+    </nav>
+    <br><br>
+    <div id="otp-container">
+    <form action="/otpVerifyM/{{txn}}" method="post">
+        <div class="input-field">
+            <input type="text" id="otp" name="otp" class="autocomplete">
+            <label for="otp">OTP</label>
+        </div><br>
+        <span id="expire"><span id="expire-msg">OTP expires in </span><span id="time"></span><a href="" id="resend">Resend
+                OTP</a></span>
+        <div><button class="waves-effect waves-light btn recharge yellow darken-1" type="submit" name="form.submitted">
+                &nbsp;Verify</button></div>
+    </form>
+    </div>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Heading</h5>
+                    <p class="grey-text text-lighten-4">Text Placeholder</p>
+                </div>
+                <!-- <div class="col l4 offset-l2 s12">
+                  <h5 class="white-text">Links</h5>
+                  <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                  </ul>
+                </div> -->
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 The Decoits
+                <!-- <a class="grey-text text-lighten-4 right" href="#!">More Links</a> -->
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="{{request.static_url('wallet:static/js/bin/materialize.js')}}"></script>
+    <script>
+        M.AutoInit();
+        let msg = document.getElementById('expire-msg');
+        let display = document.getElementById('time');
+        let resendMsg = document.getElementById('resend')
+        let elem = document.querySelector('.collapsible.expandable');
+        let instance = M.Collapsible.init(elem, {
+            accordion: false
+        });
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10)
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    msg.style.display='none';
+                    display.style.display='none';
+                    resendMsg.style.display='block';
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let time = 60*1.5
+            startTimer(time, display);
+        };
+    </script>
+</body>
+
+</html>
