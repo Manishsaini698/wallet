@@ -18,9 +18,9 @@ window.artyom = new Artyom();
         // or add some commandsDemostrations in the normal way
         artyom.addCommands([
             {
-                indexes: ['I want a voice Assistant', 'Yes I want a voice assistant', 'Yeah I need a voice assistant','Yeah'],
+                indexes: ['I want a voice Assistant', 'Yes I want a voice assistant', 'Yeah I need a voice assistant','Yeah','yes'],
                 action: (i) => {
-                    artyom.say("Hum aapki kis prakar ki sahayta kar sakte hai?");
+                    artyom.say("How may I help you?");
                     localStorage.setItem('voice',true)
                 }
             },
@@ -67,7 +67,7 @@ window.artyom = new Artyom();
         /**
          * To speech text
          */
-        artyom.say("PayDex me aapka swagat hai!", {
+        artyom.say("Welcome to paydex! Do you want a voice assistant?", {
             onStart: () => {
                 console.log("Reading ...");
             },

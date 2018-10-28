@@ -6,6 +6,7 @@ from pyramid.security import forget, remember
 from wallet.security import hash_password , check_login, check_login_mer
 
 
+
 @view_config(route_name='home', renderer='templates/index.jinja2')
 def home(request):
     return {'project': 'wallet'}

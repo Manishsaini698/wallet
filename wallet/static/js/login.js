@@ -25,9 +25,7 @@ window.artyom = new Artyom();
                             .then(e=>console.log(e))
                             .catch(err=>console.log(err))*/
                         }
-                        else{
-                            artyom.say("Kripya dobara prayas kare")
-                        }
+            
                     }
 
                 }
@@ -49,7 +47,7 @@ window.artyom = new Artyom();
             /**
              * To speech text
              */
-            artyom.say("Kripya apna dus anko ka mobile number dale", {
+            artyom.say("Speak your mobile number digit by digit", {
                 onStart: () => {
                     console.log("Reading ...");
                 },
