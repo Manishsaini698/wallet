@@ -187,7 +187,7 @@ blockquote::before{
 #pic
 {
     height: 100vh;
-    background: url('../img/other.png'); 
+    background: url('../images/other.png'); 
     background-repeat: no-repeat;
     background-position: center;
 }

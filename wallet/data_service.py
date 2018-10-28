@@ -8,11 +8,22 @@ import datetime
 
 connect('wallet')
 
+
+
 def get_for_auth_user(mobile):
-        return models.Customer.objects(mobile=mobile).first()
+    return models.Customer.objects(mobile=mobile).first()
 
 def get_for_auth_mer(mobile):
-        return models.Merchant.objects(mobile=mobile).first()
+    return models.Merchant.objects(mobile=mobile).first()
+
+
+def login_otp_verify(**kwargs):
+    mobile = kwargs['mobile']
+    print(mobile)
+    user = models.Customer.objects(mobile=mobile).first()
+    otp = user.login_otp
+    if otp == kwargs['otp']:
+        return user
 
 def create_customer(**kwargs):
     customer = models.Customer()
@@ -64,6 +75,16 @@ def send_otp(**kwargs):
     send_email('manish1216237@jmit.ac.in',message)
     return message
 
+def send_otp_mer(**kwargs):
+    totp = pyotp.TOTP('base32secret3232')
+    message = totp.now()
+    mobile = kwargs['mobile']
+    user = models.Merchant.objects(mobile=mobile).first()
+    user.login_otp = message
+    user.save()
+    send_email('manish1216237@jmit.ac.in',message)
+    return message
+
 def otp_verify(**kwargs):
     mobile = kwargs['mobile']
     user = models.Customer.objects(mobile=mobile).first()
@@ -80,6 +101,10 @@ def otp_verify_signup(**kwargs):
 
 def user_profile_page(mobile):
     user = models.Customer.objects(mobile=mobile).first()
+    return {'wallet_bal':user.wallet_bal}
+
+def mer_profile_page(mobile):
+    user = models.Merchant.objects(mobile=mobile).first()
     return {'wallet_bal':user.wallet_bal}
 
 def transaction(**kwargs):
@@ -122,7 +147,7 @@ def transact_mer(**kwargs):
         transc.save()
         transaction_freelock(transc.trans_from)
 
-def transact_merD(**kwargs):
+def transact_mer_d(**kwargs):
     tid = kwargs['txn']
     otp = kwargs['otp']  
     transc = models.Transaction.objects(id=tid).first()
@@ -140,6 +165,20 @@ def transact_merD(**kwargs):
 
 def trans_his(uid):
     user = models.Customer.objects(mobile=uid).first()
+    txns = user.trans_history
+    return_this = []
+    for txn in txns:
+        trans = models.Transaction.objects(id=txn).first()    
+        a = {}
+        a['to'] = trans.trans_to
+        a['from'] = trans.trans_from
+        a['value'] = trans.trans_value
+        a['date'] = trans.trans_time
+        return_this.append(a)
+    return return_this
+
+def trans_his_mer(uid):
+    user = models.Merchant.objects(mobile=uid).first()
     txns = user.trans_history
     return_this = []
     for txn in txns:

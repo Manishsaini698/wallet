@@ -23,6 +23,10 @@ def loginMer(request):
 def signup(request):
     return {'project': 'wallet'}
 
+@view_config(route_name='enterotpL', renderer='templates/otpL.jinja2')
+def enterotpL(request):
+    return {'project': 'wallet'}
+
 @view_config(route_name='enterotp', renderer='templates/otp.jinja2')
 def enterotp(request):
     txn = request.matchdict['txn']
@@ -30,6 +34,11 @@ def enterotp(request):
     
 @view_config(route_name='enterotpM', renderer='templates/otpM.jinja2')
 def enterotpM(request):
+    txn = request.matchdict['txn']
+    return {'project': 'wallet', 'txn':txn}
+
+@view_config(route_name='enterotpMD', renderer='templates/otpMD.jinja2')
+def enterotpMD(request):
     txn = request.matchdict['txn']
     return {'project': 'wallet', 'txn':txn}
 
@@ -50,8 +59,10 @@ def user(request):
 
 @view_config(route_name='merchant', renderer='templates/merchant.jinja2')
 def merchant(request):
-    mid = request.authenticated_userid
-    return {'project': 'wallet'}
+    uid = request.authenticated_userid
+    adict = ds.mer_profile_page(uid)
+    adict['history'] = ds.trans_his_mer(uid)
+    return {'project': 'wallet', **adict}
 
 @view_config(route_name='createCus')
 def createCus(request):
@@ -83,12 +94,12 @@ def createMer(request):
     return HTTPFound(location='/enterOtpMer')
 
 
-@view_config(route_name='otpLogin')
-def otpLogin(request):
+@view_config(route_name='otpLoginL')
+def otpLoginL(request):
     mobile = request.params['mobileno']
     request.session['mobile'] = mobile
     ds.send_otp(mobile=mobile)
-    return HTTPFound(location='/enterotp/')
+    return HTTPFound(location='/enterotpL')
 
 
 @view_config(route_name='passLogin')
@@ -126,13 +137,34 @@ def otpVerify(request):
         ds.transact(txn=txn, otp=otp)
         return HTTPFound(location='/user')
 
+
+@view_config(route_name='otpVerifyL')
+def otpVerifyL(request):
+    mobile = request.session['mobile']
+    otp = request.params['otp']
+    user = ds.login_otp_verify(mobile=mobile,otp=otp)
+    if user is not None:
+        headers = remember(request,mobile)
+        print(headers)
+        return HTTPFound(location=request.route_url('user'),headers=headers)
+    else:
+        return HTTPFound(location=request.route_url('login'))
+
 @view_config(route_name='otpVerifyM')
 def otpVerifyM(request):
     otp = request.params['otp']
     txn = request.matchdict['txn']
     if txn is not None:
         ds.transact_mer(txn=txn, otp=otp)
-        return HTTPFound(location='/user')
+        return HTTPFound(location='/merchant')
+
+@view_config(route_name='otpVerifyMD')
+def otpVerifyMD(request):
+    otp = request.params['otp']
+    txn = request.matchdict['txn']
+    if txn is not None:
+        ds.transact_mer_d(txn=txn, otp=otp)
+        return HTTPFound(location='/merchant')
 
 @view_config(route_name='otpVerifyLogin')
 def otpVerifyLogin(request):
@@ -195,18 +227,22 @@ def reqTransaction(request):
 #    tl_id = ds.transaction_lock(sender=sender)
     txn = ds.transaction(sender=sender, reciever=reciever,payment=payment, otp=otp)
  #   ds.transaction_freelock(sender=sender)
-    return HTTPFound(location='/enterotpM/' + str(txn.id))
+    return HTTPFound(location='/enterotp/' + str(txn.id))
 
 @view_config(route_name='merCredit')
 def merCredit(request):
-    reciever = request.authenticated_userid
-    sender = request.params['mobileno']
+    sender = request.authenticated_userid
+    reciever = request.params['mobileno']
     payment = request.params['money']
-    otp = ds.send_otp(mobile=sender)
-#    tl_id = ds.transaction_lock(sender=sender)
-    txn = ds.transaction(sender=sender, reciever=reciever,payment=payment, otp=otp)
- #   ds.transaction_freelock(sender=sender)
-    return HTTPFound(location='/enterotpM/' + str(txn.id))
+    otp = ds.send_otp_mer(mobile=sender)
+    check = ds.check_lock(sender)
+    if check is None:
+        ds.transaction_lock(sender)
+        txn = ds.transaction(sender=sender, reciever=reciever,payment=payment, otp=otp)
+        return HTTPFound(location='/enterotpM/' + str(txn.id))
+    else:
+        request.session.flash("can't proceed this transaction")
+        return HTTPFound(location='merchant')
 
 @view_config(route_name='merDebit')
 def merDebit(request):
@@ -214,10 +250,14 @@ def merDebit(request):
     sender = request.params['mobileno']
     payment = request.params['money']
     otp = ds.send_otp(mobile=sender)
-#    tl_id = ds.transaction_lock(sender=sender)
-    txn = ds.transaction(sender=sender, reciever=reciever,payment=payment, otp=otp)
- #   ds.transaction_freelock(sender=sender)
-    return HTTPFound(location='/enterotp/' + str(txn.id))
+    check = ds.check_lock(sender)
+    if check is None:
+        ds.transaction_lock(sender)
+        txn = ds.transaction(sender=sender, reciever=reciever,payment=payment, otp=otp)
+        return HTTPFound(location='/enterotpMD/' + str(txn.id))
+    else:
+        request.session.flash("can't proceed this transaction")
+        return HTTPFound(location='merchant')
      
 
 @view_config(route_name='logout')

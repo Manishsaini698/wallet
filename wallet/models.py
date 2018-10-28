@@ -28,6 +28,7 @@ class Merchant(mongoengine.Document):
         login_otp = mongoengine.StringField()
         wallet_bal = mongoengine.DecimalField(default=0.0)
         verified = mongoengine.StringField() 
+        trans_history = mongoengine.ListField(mongoengine.ObjectIdField())
 
 class Transaction(mongoengine.Document):
         trans_to = mongoengine.StringField()
