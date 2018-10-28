@@ -28,7 +28,7 @@ window.artyom = new Artyom();
                 indexes: ['login *'],
                 smart: true,
                 action: (i, wildcard) => {
-                    window.location = '/login.html'
+                    window.location = '/login'
                 }
             },
             // The smart commands support regular expressions
