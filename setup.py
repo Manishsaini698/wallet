@@ -15,7 +15,7 @@ requires = [
     'pyramid_debugtoolbar',
     'waitress',
     'pyramid_beaker',
-    'mongoengiene',
+    'mongoengine',
     'passlib',
     'pyotp',
     'bcrypt',
