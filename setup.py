@@ -14,7 +14,11 @@ requires = [
     'pyramid_jinja2',
     'pyramid_debugtoolbar',
     'waitress',
-    'pyramid_beaker'
+    'pyramid_beaker',
+    'mongoengiene',
+    'passlib',
+    'pyotp',
+    'bcrypt',
 ]
 
 tests_require = [
