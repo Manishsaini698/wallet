@@ -27,7 +27,7 @@ function geocodeAddress(geocoder, resultsMap) {
                 map: resultsMap,
                 position: results[0].geometry.location
             });
-            //console.log(results)
+            console.log(results)
                 //start
             let bounds = foo.getBounds();
             var southWest = bounds.getSouthWest()

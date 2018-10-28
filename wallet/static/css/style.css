@@ -3,7 +3,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-}.heading
+}
+.heading
 {
     margin-left:5%;color: #333
 }
@@ -36,12 +37,17 @@
 #otp-container
 {
     height: 55vh;
-    margin: 15px;
+    width: 50vw;
+    margin-top: 50px;
 }
 #login-pswrd
 {
     width: 55vw;
-    height: 70vh;
+    height: 80vh;
+}
+#login-merchant{
+    width: 55vw;
+    height: 80vh;
 }
 #resend
 {
@@ -54,7 +60,7 @@
 #login-otp
 {
     width: 55vw;
-    height: 55vh
+    height: 80vh
 }
 .balance
 {
@@ -184,6 +190,14 @@ blockquote::before{
     display: flex;
     justify-content: center;
 }
+#profile{
+    width: 70vw;
+    margin:70px;
+    border: 1px solid #eaeaea;
+    border-radius: 15px;
+    padding: 10px;
+    font-size:1.6rem;
+}
 #pic
 {
     height: 100vh;
@@ -257,6 +271,16 @@ blockquote::before{
 {
     margin: 10px
 }
+.profile
+{
+    width:50vw;
+    margin-top: 10vh;
+    border: 1px solid #eaeaea;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10vh;
+    background: rgba(0, 0, 0, 0.062);;
+}
 .add
 {
     margin-left: 20vw;
@@ -267,11 +291,53 @@ blockquote::before{
     margin-left: 20vw;
     color: red;
 }
+#faq{
+margin: 70px 0;
+}
 #history{
     padding: 0;
 }
+.edit{
+    border: none;
+    background: none;
+    color: rgb(61, 151, 235)
+}
+.field{
+    width: 40vw
+}
+#search-container{
+    border: 1px solid #eaeaea;
+    width: 50vw;
+    border-radius: 5px;
+}
+.info{
+    position: absolute;
+    right: 10px;
+}
   @media(max-width:700px)
 {  
+    .info{
+        right: 0
+    }
+    #login-otp{
+        height: 90vh
+    }
+    #login-pswrd{
+        height: 110vh
+    }
+    #login-merchant{
+        height: 90vh
+    }
+    #logo{
+        height: 5vh;
+        top:10px;
+    }
+    .field{
+        width: 60vw;
+    }
+    .profile{
+        width: 90vw
+    }
     .collapsible-body{
         padding: 12px;
     }

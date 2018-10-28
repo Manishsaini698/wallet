@@ -12,9 +12,6 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
-    <style>
-
-    </style>
 </head>
 
 <body>
@@ -23,10 +20,11 @@
             <div class="nav">
                 <div class="">
                     <div class="">
-                        <img src=" {{request.static_url('wallet:static/images/PayDex.jpg')}} " alt="" id="logo">
+                        <img src=" {{request.static_url('wallet:static/images/PayDex.png')}} " alt="" id="logo">
                         <ul id="btns">
-                            <li><a class="waves-effect waves-light btn list-items" href="/login">Login</a></li>
-                            <li> <a class="waves-effect waves-light btn list-items" href="/signup">Signup</a></li>
+                            <li><b>Login:</b></li>
+                            <li><a class="waves-effect waves-light btn list-items" href="/login">User</a></li>
+                            <li> <a class="waves-effect waves-light btn list-items" href="/loginMer">Partner</a></li>
                         </ul>
                     </div>
                 </div>
@@ -37,34 +35,34 @@
         <canvas class="flexBox" id="quote">
         </canvas>
         <blockquote style="height:92vh">
-            
+
             There are some things that money can't buy, for all the other things
             PayDex is here
             <br><br>
-            <center> <button onclick="scrolling()" id="know-more">Know More</a></center>
+            <center> <button id="know-more" href="/signup">Sign up</a></center>
         </blockquote>
         <div class="flexBox">
             <div class="slider">
                 <ul class="slides">
                     <li>
-                        <img src="{{request.static_url('wallet:static/images/1.jpg')}}">
+                        <img src=" {{request.static_url('wallet:static/images/1.jpg')}} ">
                         <div class="caption center-align">
-                            <h3>For Elders</h3>
-                            <h5 class="light slidetext">Text</h5>
+                            <h3>Easy For Elders</h3>
+                            <h5 class="light slidetext"></h5>
                         </div>
                     </li>
                     <li>
                         <img src="{{request.static_url('wallet:static/images/2.jpg')}}">>
                         <div class="caption left-align">
                             <h3>For Youth</h3>
-                            <h5 class="light blue-text text-lighten-3 slidetext">Text</h5>
+                            <h5 class="light slidetext"></h5>
                         </div>
                     </li>
                     <li>
                         <img src="{{request.static_url('wallet:static/images/3.jpg')}}">
                         <div class="caption right-align">
-                            <h3>For World</h3>
-                            <h5 class="light blue-text text-lighten-3 slidetext">Text</h5>
+                            <h3>Helping hand for refugees</h3>
+                            <h5 class="light  slidetext"></h5>
                         </div>
                     </li>
                     <!-- <li>
@@ -139,7 +137,7 @@
         </center>
     </div>
     <div id="pic">
-    </div> 
+    </div>
     </div><br>
     <br>
     <br>
@@ -148,7 +146,9 @@
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">About PayDex</h5>
-                    <p class="grey-text text-lighten-4">Paydex is one of the most unique solution to  cash dominated country, a payment wallet for all the citizens, students, elderly people, refugees and physically impaired people.</p>
+                    <p class="grey-text text-lighten-4">Paydex is one of the most unique solution to cash dominated
+                        country, a payment wallet for all the citizens, students, elderly people, refugees and
+                        physically impaired people.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Other info</h5>
@@ -169,6 +169,29 @@
             </div>
         </div>
     </footer>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <script>
+        var recognition = new webkitSpeechRecognition();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.lang = "en-GB";
+
+        recognition.onresult = function (event) {
+            var interim_transcript = '';
+
+            for (var i = event.resultIndex; i < event.results.length; ++i) {
+                if (event.results[i].isFinal) {
+                    final_transcript += event.results[i][0].transcript;
+                } else {
+                    interim_transcript += event.results[i][0].transcript;
+                }
+            }
+
+            console.log(interim_transcript, final_transcript);
+        };
+    </script> -->
+    <script src="{{request.static_url('wallet:static/js/voice.js')}}"></script>
+   <script src="{{request.static_url('wallet:static/js/main.js')}}"></script>
     <script src="{{request.static_url('wallet:static/js/granim.js')}}"></script>
     <script>
         function scrolling() {
@@ -176,10 +199,8 @@
                 behavior: 'smooth'
             });
         }
-        window.onload = function () {
-            let elem = document.getElementById('quote');
-            elem.style.opacity = "1";
-        };
+        let elem = document.getElementById('quote');
+        elem.style.opacity = "1";
         var granimInstance = new Granim({
             element: '#quote',
             name: 'basic-gradient',
@@ -205,6 +226,67 @@
             var instances = M.Slider.init(elems, { indicators: false, duration: 600, interval: 3000 });
         });
     </script>
+    <!-- <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+    <script>
+        function detect() {
+            let counter = 0;
+            const recognition = new (
+                window.SpeechRecognition ||
+                window.webkitSpeechRecognition ||
+                window.mozSpeechRecognition ||
+                window.msSpeechRecognition
+            )();
+            if (counter == 0) {
+                responsiveVoice.speak("Hello!......, welcome to PayDex!, Do you want voice Assistance?", "US English Female");
+            }
+            recognition.addEventListener('result', event => {
+                console.log(event)
+                const currentIndex = event.results.length - 1;
+                const transcript = event.results[currentIndex][0].transcript;
+                console.log(transcript)
+                if (transcript == 'yes') {
+                    responsiveVoice.speak("What do you want to do?")
+                    const recog2 = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+                    recog2.addEventListener('result', e => {
+                        let index = e.results.length - 1;
+                        let text = e.results[index][0].transcript;
+                        console.log(text)
+                        if (text == "login") {
+                            localStorage.setItem('voice', true);
+                            console.log(localStorage.getItem('voice'), 'setting voice in localStorage')
+                            window.location = '/login.html'
+                        }
+                    })
+                    setTimeout(e=>{
+                        recog2.start();
+                    },1000)
+                    
+                }
+                else if (transcript == 'no') {
+                    responsiveVoice.speak("Okay then......, Have a good day!")
+                }
+                else {
+                    responsiveVoice.speak("Sorry, I did not understand what you just said. Perhaps we can try again.")
+                    counter = 1;
+                    detect();
+                }
+            })
+            setTimeout(e=>{
+                recognition.start();
+            },3500)
+            
+        }
+        window.onload = detect;
+      /* navigator.permissions.query({name:'midi', sysex:true})
+
+        navigator.permissions.query({name:'midi'})
+        .then(e=>{
+            if(e){
+               console.log(e)
+               // responsiveVoice.speak("hello world", "UK English Male");
+            }
+        })*/
+    </script> -->
 </body>
 
 </html>

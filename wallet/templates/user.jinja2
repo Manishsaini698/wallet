@@ -25,8 +25,8 @@
                         <img src="{{request.static_url('wallet:static/images/Paydex.png')}}" alt="" id="logo">
                         <ul id="btns">
                             <!-- <li> <a class="waves-effect waves-light btn list-items" href="/logout">Logout</a></li> -->
-                            <li><a href="/profile" class="btn-floating"><i class="far fa-user" style="font-size: 20px;"></i></a></li>
-                            <li><a href="/logout" class="btn-floating"><i class="fas fa-sign-out-alt" style="font-size: 20px;"></i></a></li>
+                            <li><button class="btn-floating" href="/profileUser"><i class="far fa-user" style="font-size: 20px;" ></i></button></li>
+                            <li><button class="btn-floating" href="/logout"><i class="fas fa-sign-out-alt" style="font-size: 20px;" ></i></button></li>
                         </ul>
                     </div>
                 </div>
@@ -34,91 +34,113 @@
         </nav>
     </div><br><br><br>
     <div class="balance">
-            <div class="left"> 
-                <b>Account Balance : 
-        </b> <i class="fas fa-rupee-sign" style="font-size: 1.1rem;"></i></a>{{ wallet_bal}}</div>
-   
-        <div class="right">  <b>Credit Limit :
-    </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-rupee-sign" style="font-size: 1.2rem;"></i>&nbsp;20000.00<br><b>You can add(this
-        month) :&nbsp;</b><i class="fas fa-rupee-sign" style="font-size: 1.1rem;"></i>&nbsp;{{ 20000 - wallet_bal }}</div>
+        <div class="left">
+            <i class="fas fa-wallet" style="font-size: 50px;"></i>
+            <b> <span id="balance-text">Account Balance</span>
+            </b> <span style="font-size:1.5rem">&nbsp;&nbsp;<i class="fas fa-rupee-sign" style="font-size: 1.3rem;"></i></a>
+                {{ wallet_bal }}</span></span> </div>
+        <div class="right"> <b>Credit Limit :
+            </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+                class="fas fa-rupee-sign" style="font-size: 1.2rem;"></i>&nbsp;20000 <br><b>You can add(this
+                week) :&nbsp;</b><i class="fas fa-rupee-sign" style="font-size: 1.1rem;"></i>&nbsp;{{ 20000 - wallet_bal}}</div>
     </div>
     </div>
     <br>
     <br>
     <div class="function-container hoverable">
         <h4 class="heading">Transfer</h4><br>
-        <form action="/userTransaction" method="post">
-        <div class="user-transfer">
-            <div class="input-field merchantContainer">
-                <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
-                <input type="text" id="userToTransfer" name="mobileno" class="autocomplete">
-                <label class="active" for="userToTransfer">Mobile Number</label>
-            </div><br>
-            <div class="input-field merchantContainer">
-                <i class="fas fa-rupee-sign prefix colorgrey" style="font-size: 25px;"></i>
-                <input type="text" id="moneyToTransfer" name="money" class="autocomplete">
-                <label for="moneyToTransfer">Amount</label>
-            </div><br>
-            <div class="merchantContainer"><button class="waves-effect waves-light btn recharge" type="submit" name="form.submitted"><i class="fas fa-exchange-alt"
-                        style='font-size:15px ;position:relative ; margin-bottom:0;'></i>
-                    &nbsp;Tranfer</button></div>
-        </div><br><br>
-        </form>
+        <form action="/userTransaction" method="post" name="transfer">
+            <div class="user-transfer">
+                <div class="input-field merchantContainer">
+                    <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
+                    <input type="text" id="userToTransfer" name="mobileno" class="autocomplete">
+                    <label class="active" for="userToTransfer">Mobile Number</label>
+                </div><br>
+                <div class="input-field merchantContainer">
+                    <i class="fas fa-rupee-sign prefix colorgrey" style="font-size: 25px;"></i>
+                    <input type="text" id="moneyToTransfer" name="money" class="autocomplete">
+                    <label for="moneyToTransfer">Amount</label>
+                </div><br>
+                <div class="merchantContainer"><button class="waves-effect waves-light btn recharge" type="submit" name="form.submitted"><i class="fas fa-exchange-alt"
+                            style='font-size:15px ;position:relative ; margin-bottom:0;'></i>
+                        &nbsp;Tranfer</button></div>
+            </div><br><br>
+            </form>
     </div><br>
     <br>
     <br>
-
     <div class="function-container hoverable">
         <h4 class="heading">Request</h4><br>
         <form action="/reqTransaction" method="post">
-        <div class="user-transfer">
-            <div class="input-field merchantContainer">
-                <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
-                <input type="text" id="userToRequest" name="mobileno" class="autocomplete">
-                <label class="active" for="userToRequest">Mobile Number</label>
-            </div><br>
-            <div class="input-field merchantContainer">
-                <i class="fas fa-rupee-sign prefix colorgrey" style="font-size: 25px;"></i>
-                <input type="text" id="moneyToRequest" name="money" class="autocomplete">
-                <label for="moneyToRequest">Amount</label>
-            </div><br>
-            <div class="merchantContainer"><button class="waves-effect waves-light btn recharge" type="submit" name="form.submitted" ><i class="fas fa-bolt"
-                        style='font-size:15px ;position:relative ; margin-bottom:0;'></i>
-                    &nbsp;Request</button></div>
-        </div><br><br>
-        </div>
-        </form>
+            <div class="user-transfer">
+                <div class="input-field merchantContainer">
+                    <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
+                    <input type="text" id="userToRequest" name="mobileno" class="autocomplete">
+                    <label class="active" for="userToRequest">Mobile Number</label>
+                </div><br>
+                <div class="input-field merchantContainer">
+                    <i class="fas fa-rupee-sign prefix colorgrey" style="font-size: 25px;"></i>
+                    <input type="text" id="moneyToRequest" name="money" class="autocomplete">
+                    <label for="moneyToRequest">Amount</label>
+                </div><br>
+                <div class="merchantContainer"><button class="waves-effect waves-light btn recharge" type="submit" name="form.submitted" ><i class="fas fa-bolt"
+                            style='font-size:15px ;position:relative ; margin-bottom:0;'></i>
+                        &nbsp;Request</button></div>
+            </div><br><br>
+            </div>
+            </form>
     <br>
     <br>
     <center>
         <h3>Find our Partners near you!</h3>
     </center><br><br>
     <center>
-        <div id="floating-panel">
-            <input placeholder="Enter your location" id="address" type="textbox">
-            <input id="submit" type="button" value="Get Partners">
-        </div><br>
-        <div id="map"></div>
+        <div id="map-container">
+            <div class="nav-content">
+                <ul class="tabs">
+                    <li class="tab"><a class="active" href="#location">Get by Location</a></li>
+                    <li class="tab"><a href="#map-location">
+                            Get by Map
+                        </a></li>
+                </ul>
+            </div>
+            <div id="location">
+                <div id="floating-panel">
+                    <input placeholder="Enter your location" id="tet" type="textbox">
+                    <input id="submt" type="button" value="Gt Partners">
+                </div><br>
+                <ul id="partner-list">
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Reprehenderit at voluptates esse tempore.</li>
+                    <li>Incidunt culpa non praesentium aspernatur.</li>
+                    <li>Quo recusandae ullam illo animi.</li>
+                    <li>Delectus repellat nulla maxime quia!</li>
+                    <li>Quos ipsum eos nam in.</li>
+                    <li>Explicabo quidem ad natus doloribus!</li>
+                    <li>Consectetur ab magnam eum quidem.</li>
+                    <li>Quasi cum molestiae illum quisquam.</li>
+                    <li>Dicta quasi maxime similique itaque.</li>
+                </ul>
+            </div>
+            <div id="map-location">
+                <div id="floating-panel">
+                    <input placeholder="Enter your location" id="address" type="textbox">
+                    <input id="submit" type="button" value="Get Partners">
+                </div><br>
+                <div id="map"></div>
+            </div>
+        </div>
     </center>
     <ul id="btn-collection" class="collapsible expandable">
         <li>
-            <div class="collapsible-header" style="width:100%;"><i class="fas fa-map-marked-alt" style="font-size: 20px;"></i>Find Merchants Near Me</div>
-            <div class="collapsible-body"><span>
-                    <ol id="history">
-
-                    </ol>
-                </span></div>
-        </li>
-        <li>
-
             <div class="collapsible-header"><i class="fas fa-history" style="font-size: 20px;"></i>Last 10 Transaction
                 History</div>
             <div class="collapsible-body"><span>
                     <ol id="history">
-                        {% for txn in history %}
-                        <li class="history-items">{{ txn['to'] }} -    {{ txn['value'] }}</li>
-                        {% endfor %}
-                    </ol>
+                            {% for txn in history %}
+                            <li class="history-items">{{ txn['to'] }} -    {{ txn['value'] }}</li>
+                            {% endfor %}
+                        </ol>
 
                 </span></div>
         </li>
@@ -131,7 +153,9 @@
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">About PayDex</h5>
-                    <p class="grey-text text-lighten-4">Paydex is one of the most unique solution to  cash dominated country, a payment wallet for all the citizens, students, elderly people, refugees and physically impaired people.</p>
+                    <p class="grey-text text-lighten-4">Paydex is one of the most unique solution to cash dominated
+                        country, a payment wallet for all the citizens, students, elderly people, refugees and
+                        physically impaired people.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Other info</h5>
@@ -164,6 +188,8 @@
             accordion: false
         });
     </script>
+    <script src="{{request.static_url('wallet:static/js/voice.js')}}"></script>
+    <script src="{{request.static_url('wallet:static/js/transfer.js')}}"></script>
 </body>
 
 </html>

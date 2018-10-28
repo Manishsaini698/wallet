@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Paydex|Login</title>
+    <title>Project Name</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="{{request.static_url('wallet:static/css/materialize.css')}}" />
     <link rel="stylesheet" href="{{request.static_url('wallet:static/css/style.css')}}">
@@ -13,21 +13,23 @@
 </head>
 
 <body>
-    <nav class="nav-extended">
-        <div class="nav-wrapper">
-            <div class="row">
-                <div class="col s12">
-                    <img src="{{request.static_url('wallet:static/images/Paydex.png')}}" alt="" id="logo">
+    <div class="navbar-fixed">
+        <nav class="nav-extended">
+            <div class="nav-wrapper">
+                <div class="row">
+                    <div class="col s12">
+                        <img src="{{request.static_url('wallet:static/images/PayDex.png')}}" alt="" id="logo">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="nav-content">
-            <ul class="tabs">
-                <li class="tab"><a class="active" href="#login-otp">Login with OTP</a></li>
-                <li class="tab"><a href="#login-pswrd">Login with Password</a></li>
-            </ul>
-        </div>
-    </nav>
+            <div class="nav-content">
+                <ul class="tabs">
+                    <li class="tab"><a class="active" href="#login-otp">Login with OTP</a></li>
+                    <li class="tab"><a href="#login-pswrd">Login with Password</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 
     <center>
         <div id="login-otp" class="col s12">
@@ -35,9 +37,10 @@
             <br>
             <br>
             <br>
+            <h2>User Login</h2>
+            <br><br>
             <br>
-            <br>
-            <form action="/otpLoginL" method="post">
+            <form action="/otpLoginL" method="post" name="otpLoginL">
                 <div class="input-field">
                     <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
                     <input type="text" id="phone" name="mobileno" class="autocomplete">
@@ -57,8 +60,9 @@
             <br>
             <br>
             <br>
+            <h2>User Login</h2>
             <br>
-            <br>
+            <br><br>
             <form action="/passLogin" method="post">
                 <div class="input-field">
                     <i class="fas fa-mobile-alt prefix colorgrey" style="font-size: 25px;"></i>
@@ -69,20 +73,33 @@
                     <i class="fas fa-lock prefix colorgrey" style="font-size: 25px;"></i>
                     <input type="text" id="password" name="password" class="autocomplete">
                     <label class="active" for="password">Password</label>
+                    <a style="float:right" href="">Don't have an account?</a>
                 </div><br>
+
                 <button class="waves-effect waves-light btn" type="submit" name="form.submitted">
-                        &nbsp;Login</button>
-    
-            </form>
+                    &nbsp;Login <br></button><br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+            </form><br><br>
+            <br>
+            <br>
+            <br>
+            <br>
+
     </center>
     </div>
 
-   <footer class="page-footer">
+    <footer class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">About PayDex</h5>
-                    <p class="grey-text text-lighten-4">Paydex is one of the most unique solution to  cash dominated country, a payment wallet for all the citizens, students, elderly people, refugees and physically impaired people.</p>
+                    <p class="grey-text text-lighten-4">Paydex is one of the most unique solution to cash dominated
+                        country, a payment wallet for all the citizens, students, elderly people, refugees and
+                        physically impaired people.</p>
                 </div>
                 <div class="col l4 offset-l2 s12">
                     <h5 class="white-text">Other info</h5>
@@ -103,8 +120,10 @@
             </div>
         </div>
     </footer>
-
-     <script src="{{request.static_url('wallet:static/js/bin/materialize.js')}}"></script>
+    <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+    <script src="{{request.static_url('wallet:static/js/voice.js')}}"></script>
+    <script src="{{request.static_url('wallet:static/js/bin/materialize.js')}}"></script>
+    <script src="{{request.static_url('wallet:static/js/login.js')}}"></script>
     <script>
         M.AutoInit();
     </script>
