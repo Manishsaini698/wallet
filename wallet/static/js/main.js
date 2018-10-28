@@ -2,10 +2,10 @@ window.artyom = new Artyom();
         artyom.on(['I want to login', 'I need to login']).then((i) => {
             switch (i) {
                 case 0:
-                    window.location = '/login'
+                    window.location = '127.0.0.1:6543/login'
                     break;
                 case 1:
-                    window.location = '/login'
+                    window.location = '127.0.0.1:6543/login'
                     break;
             }
         });
@@ -28,7 +28,7 @@ window.artyom = new Artyom();
                 indexes: ['login *'],
                 smart: true,
                 action: (i, wildcard) => {
-                    window.location = '/login'
+                    window.location = '127.0.0.1:6543/login'
                 }
             },
             // The smart commands support regular expressions
