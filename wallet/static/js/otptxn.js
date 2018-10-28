@@ -15,7 +15,7 @@ window.artyom = new Artyom();
                             document.otpVerify.submit();
                            },10000)
                         }else{
-                            artyom.say('please enter the otp again')
+                            artyom.say('Kripya dobara prayas kare')
                         }
                     }
 
@@ -38,7 +38,7 @@ window.artyom = new Artyom();
             /**
              * To speech text
              */
-            artyom.say("Please enter the OTP", {
+            artyom.say("kripya apna chhai anko ka pass dale", {
                 onStart: () => {
                     console.log("Reading ...");
                 },

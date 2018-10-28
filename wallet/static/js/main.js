@@ -2,10 +2,10 @@ window.artyom = new Artyom();
         artyom.on(['I want to login', 'I need to login']).then((i) => {
             switch (i) {
                 case 0:
-                    window.location = '127.0.0.1:6543/login'
+                    window.location = '/login'
                     break;
                 case 1:
-                    window.location = '127.0.0.1:6543/login'
+                    window.location = '/login'
                     break;
             }
         });
@@ -20,7 +20,7 @@ window.artyom = new Artyom();
             {
                 indexes: ['I want a voice Assistant', 'Yes I want a voice assistant', 'Yeah I need a voice assistant','Yeah'],
                 action: (i) => {
-                    artyom.say("Okay what kind of help do you need?");
+                    artyom.say("Hum aapki kis prakar ki sahayta kar sakte hai?");
                     localStorage.setItem('voice',true)
                 }
             },
@@ -28,7 +28,7 @@ window.artyom = new Artyom();
                 indexes: ['login *'],
                 smart: true,
                 action: (i, wildcard) => {
-                    window.location = '127.0.0.1:6543/login'
+                    window.location = '/login'
                 }
             },
             // The smart commands support regular expressions
@@ -67,7 +67,7 @@ window.artyom = new Artyom();
         /**
          * To speech text
          */
-        artyom.say("Welcome to Paydex...! Do you want a Voice Assisstant", {
+        artyom.say("PayDex me aapka swagat hai!", {
             onStart: () => {
                 console.log("Reading ...");
             },

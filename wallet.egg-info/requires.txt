@@ -1,9 +1,13 @@
+bcrypt
+mongoengine
+passlib
 plaster_pastedeploy
+pyotp
 pyramid
-pyramid_jinja2
-pyramid_debugtoolbar
-waitress
 pyramid_beaker
+pyramid_debugtoolbar
+pyramid_jinja2
+waitress
 
 [testing]
 WebTest>=1.3.1

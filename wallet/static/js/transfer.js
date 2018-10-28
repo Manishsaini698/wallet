@@ -16,7 +16,7 @@ window.artyom = new Artyom();
                             document.transfer.submit();
                         }
                          else {
-                            artyom.say('Please speak in correct format')
+                            artyom.say('Kripya dubara prayas kare, udaharadh ke lie Priyanka ko 400 bhejo')
                         }
                     }
 
@@ -39,7 +39,7 @@ window.artyom = new Artyom();
             /**
              * To speech text
              */
-            artyom.say("say the reciever's name and money", {
+            artyom.say("kripya reciever mobile number athva dhan rashi pradan kare", {
                 onStart: () => {
                     console.log("okay")
                 },
